@@ -63,22 +63,61 @@ table td.avatar {
 }
 
 .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
 }
 
 /* panels */
+
+.panel-heading {
+  padding: 0px 0px 15px 0px;
+  margin: 15px;
+  .panel-heading-right-links {
+    float: right !important;
+    bottom: 0px;
+    a {
+      padding-right: 15px;
+    }
+    a:last-child {
+      padding-right: 0px;
+    }
+  }
+}
+
+.panel-nav {
+  padding: 0px 0px 15px 0px;
+  margin: 15px;
+  a {
+    padding-right: 15px;
+  }
+  a:last-child {
+    padding-right: 0px;
+  }
+  .dropdown {
+    display: inline-block;
+  }
+}
+
+/* tables */
+
+.table {
+  tr:first-child {
+    td {
+      border-top: 0;
+    }
+  }
+}
 
 .activity-mini {
   padding-right: 15px;

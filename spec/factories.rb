@@ -12,8 +12,12 @@ FactoryGirl.define do
     role "user"
     avatar { Faker::Avatar.image }
     
-    factory :superadmin do
-      role "superadmin"
+    factory :admin do
+      role "admin"
+    end
+    
+    factory :bank_user do
+      role "bank_user"
     end
     
     factory :me do
@@ -24,7 +28,7 @@ FactoryGirl.define do
       gender "male"
       password "123123"
       password_confirmation "123123"
-      role "superadmin"
+      role "admin"
       avatar { Faker::Avatar.image }
     end
   end
@@ -40,7 +44,7 @@ FactoryGirl.define do
       transient { users_count 1 }
       
       after(:build) do |bank, evaluator|
-        bank.users << build_list(:user, evaluator.users_count)
+        bank.users << build_list(:bank_user, evaluator.users_count)
         bank
       end
     end

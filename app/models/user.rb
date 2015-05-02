@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
      
   validates :last_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :first_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
-  validates :middle_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }, if: :middle_name
+  validates :middle_name, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }, if: :middle_name
   validates :gender, presence: true, length: { maximum: 6 }
   validates_date :birth_date, presence: true, on_or_before: lambda { User.not_younger }, on_or_after: lambda { User.not_older }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, if: :new_record?
     
   enum gender: [:male, :female, :other]
-  enum role: [:superadmin, :admin, :bank_admin, :bank_user, :user]
+  enum role: [:admin, :bank_user, :user]
   
   class << self
     
@@ -73,17 +73,33 @@ class User < ActiveRecord::Base
       SecureRandom.urlsafe_base64
     end
     
-    # Users can not be older than this date
+    # Users can not be older than this date.
     def not_older
       108.years.ago
     end
     
-    # Users can not be younger than this date
+    # Users can not be younger than this date.
     def not_younger
       18.years.ago
     end
   end
-
+  
+  # Returns the user's age.
+  def age
+    if birth_date
+      now = Date.today
+      now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
+    end
+  end
+  
+  # Returns true if birthday today.
+  def birthday_today?
+    if birth_date
+      now = Date.today
+      now.month == birth_date.month && now.day == birth_date.day
+    end
+  end
+  
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = User.new_token

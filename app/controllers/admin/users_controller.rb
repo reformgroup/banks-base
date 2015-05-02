@@ -44,6 +44,7 @@ class Admin::UsersController < ApplicationController
   end
 
   private
+  
   # All params
   def user_params
     params.require(:user).permit( :last_name, 

@@ -22,6 +22,18 @@ ru:
     banks:
       title: "Банкам"
       signup_button: "Зарегистрировать"
+  admin:
+    users:
+      signup:
+        title: "Регистрация"
+        submit: "Зарегистрироваться"
+      show:
+        title: "Профиль пользователя"
+        edit_button: "Редактировать"
+      index:
+        title: "Список пользователей"
+        add_user_link: "Добавить пользователя"
+        filters_link: "Фильтр"
   users:
     signup:
       title: "Регистрация"

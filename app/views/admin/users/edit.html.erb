@@ -1,0 +1,92 @@
+<% provide(:title, @user.short_name) %>
+
+<%= form_for(@user) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-<%= default_grid_system %>-9">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-<%= default_grid_system %>-12 lead">
+                <%= t ".title" %>
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-<%= default_grid_system %>-4 text-center">
+                <div id="img-preview-block" class="img-circle avatar avatar-original center-block" style="background-image:url(<%= @user.avatar.url %>)"></div>
+      					<span class="btn btn-link btn-file">Edit avatar<%= f.file_field :avatar, id: "upload-img" %></span>
+      					<%= error_messages @user, :avatar %>
+              </div>
+              <div class="col-<%= default_grid_system %>-8">
+                <div class="form-group">
+          				<%= f.label :last_name %>
+        					<%= f.text_field :last_name, class: "form-control" %>
+        					<%= error_messages @user, :last_name %>
+                </div>
+                <div class="form-group">
+          				<%= f.label :first_name %>
+        					<%= f.text_field :first_name, class: "form-control" %>
+        					<%= error_messages @user, :first_name %>
+                </div>
+                <div class="form-group">
+          				<%= f.label :middle_name %>
+        					<%= f.text_field :middle_name, class: "form-control" %>
+        					<%= error_messages @user, :middle_name %>
+                </div>
+          			<div class="form-group">
+          				<%= f.label :email %>
+        					<%= f.text_field :email, class: "form-control" %>
+        					<%= error_messages @user, :email %>
+          			</div>
+          			<div class="form-group">
+          				<%= f.label :birth_date %><br>
+        					<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "form-control date-select selectpicker" %>
+        					<%= error_messages @user, :birth_date %>
+          			</div>
+                <div class="radio">
+        					<label class="radio-inline">
+        						<%= f.radio_button :gender, :male %>
+        						<%= User.human_attribute_name("gender.male") %>
+        					</label>
+        					<label class="radio-inline">
+        						<%= f.radio_button :gender, :female %>
+        						<%= User.human_attribute_name("gender.female") %>
+        					</label>
+        					<label class="radio-inline">
+        						<%= f.radio_button :gender, :other %>
+        						<%= User.human_attribute_name("gender.other") %>
+        					</label>
+                </div>
+                <br>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-user-modal">
+                  <i class="fa fa-trash-o"></i> Delete user
+                </button>
+                <br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-<%= default_grid_system %>-12">
+                <hr>
+                <button class="btn btn-default pull-right" type="submit"><%= icon("floppy-o", t(".save_changes")) %></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="delete-user-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Are you sure you want to delete account?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= link_to t(".delete_button"), user_path(@user), method: :delete, class: "btn btn-danger" %>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<% end %>
