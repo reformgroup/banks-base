@@ -1,0 +1,36 @@
+ru:
+  activerecord:
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+      bank:
+        one: Банк
+        other: Банки
+    attributes:
+      user:
+        first_name: "Имя"
+        middle_name: "Отчество"
+        last_name: "Фамилия"
+        email: "Адрес электронной почты"
+        birth_date: "Дата рождения"
+        gender: "Пол"
+        role: "Доступ"
+        avatar: "Фото профиля"
+        password: "Пароль"
+        password_confirmation: "Ещё раз пароль"
+        remember_me: "Запомнить меня"
+      user/gender:
+        male: "Мужской"
+        female: "Женский"
+        other: "Другое"
+      user/role:
+        superadmin: "Суперадмин"
+        admin: "Админ"
+        bank_admin: "Админ банка"
+        bank_user: "Пользователь банка"
+        user: "Пользователь"
+      bank:
+        name: "Название банка"
+        short_name: "Короткое название"
+        website: "Сайт"

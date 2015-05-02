@@ -1,0 +1,62 @@
+<% provide :title, t(".title") %>
+
+<div class="col-<%= default_grid_system %>-4 pull-right">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+		  <h3><%= t ".title" %></h3>
+		  <hr>
+			<%= form_for(@bank, html: { class: "form" }) do |f| %>
+				<div class="form-group">
+					<%= f.text_field :name, class: "form-control", placeholder: true %>
+					<%= error_messages @bank, :name %>
+				</div>
+				<div class="form-group">
+          <%= f.url_field :website, class: "form-control", placeholder: true %>
+					<%= error_messages @bank, :website %>
+				</div>
+				
+				<%= f.fields_for(:bank_users) do |bank_users_f| %>
+					<%= bank_users_f.fields_for(:user) do |user_f| %>
+						<div class="form-group">
+							<%= user_f.text_field :first_name, class: "form-control", placeholder: true %>
+							<%= error_messages user_f.object, :first_name %>
+						</div>
+						<div class="form-group">
+							<%= user_f.text_field :last_name, class: "form-control", placeholder: true %>
+							<%= error_messages user_f.object, :last_name %>
+						</div>
+						<div class="form-group">
+							<%= user_f.text_field :email, class: "form-control", placeholder: true %>
+							<%= error_messages user_f.object, :email %>
+						</div>
+						<div class="form-group">
+							<%= user_f.password_field :password, class: "form-control", placeholder: true %>
+							<%= error_messages user_f.object, :password %>
+						</div>
+						<div class="form-group">
+							<%= user_f.password_field :password_confirmation, class: "form-control", placeholder: true %>
+							<%= error_messages user_f.object, :password_confirmation %>
+						</div>
+						<div class="form-group">
+							<%= user_f.label :birth_date %><br>
+							<%= user_f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, { class: "form-control date-select" } %>
+							<%= error_messages user_f.object, :birth_date %>
+						</div>
+						<label class="radio-inline">
+						  <%= user_f.radio_button :gender, :male %>
+						  <%= User.human_attribute_name "gender.male" %>
+						</label>
+						<label class="radio-inline">
+						  <%= user_f.radio_button :gender, :female %>
+						  <%= User.human_attribute_name "gender.female" %>
+						</label>
+						<br>
+						<%= error_messages user_f.object, :gender %>
+						<br>
+					<% end %>
+				<% end %>
+				<%= f.submit t(".submit"), class: "btn btn-primary" %>
+		  <% end %>
+		</div>
+	</div>
+</div>

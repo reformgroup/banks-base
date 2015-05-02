@@ -1,0 +1,42 @@
+ru:
+  layouts:
+    base_header:
+      individual: "Частным клиентам"
+      company: "Для бизнеса"
+      bank: "Банкам"
+      signup: "Регистрация"
+      login: "Войти"
+      logout: "Выйти"
+      profile: "Мой профиль"
+      dashboard: "Панель управления"
+    sidebar:
+      title: "Панель управления"
+      profile: "Профиль"
+      banks: "Банки"
+      users: "Пользователи"
+  main_pages:
+    individual:
+      title: "Частным клиентам"
+    company:
+      title: "Для бизнеса"
+    banks:
+      title: "Банкам"
+      signup_button: "Зарегистрировать"
+  users:
+    signup:
+      title: "Регистрация"
+      submit: "Зарегистрироваться"
+    show:
+      title: "Профиль пользователя"
+      edit_button: "Редактировать"
+    index:
+      title: "Список пользователей"
+  banks:
+    signup:
+      title: "Регистрация"
+      submit: "Зарегистрировать"
+  sessions:
+    new:
+      title: "Вход"
+      forgot_password: "Забыли пароль?"
+      submit: "Войти"

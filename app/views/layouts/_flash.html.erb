@@ -1,0 +1,13 @@
+<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %> alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<% if value.is_a? Hash %>
+			<% if value[:title] %>
+				<strong><%= value[:title] %></strong><br>
+			<% end %>
+			<%= value[:message] %>
+		<% else %>
+			<%= value %>
+		<% end %>
+	</div>
+<% end %>

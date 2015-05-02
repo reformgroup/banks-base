@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">About bank</a>
+    </div>
+		<div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <%= nav_link_to t(".individual"), root_path %>
+        <%= nav_link_to t(".company"), company_path %>
+        <%= nav_link_to t(".bank"), bank_path %>
+      </ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_locale_name %> <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<% locale_list.each do |local_key, locale_name| %>
+							<li><%= link_to locale_name, { locale: local_key } %></li>
+						<% end %>
+					</ul>
+				</li>
+		
+				<% if logged_in? %>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+              <%= image_tag current_user.avatar.url(:thumb), class: "img-circle avatar avatar-thumb" %>
+              <%= "#{current_user.first_name} #{current_user.last_name}" %> <b class="caret"></b>
+            </a>
+						<ul class="dropdown-menu">
+							<li><%= link_to icon("user", t(".profile"), class: "fa-fw text-muted"), my_profile_path(current_user) %></li>
+              <li><%= link_to icon("wrench", t(".dashboard"), class: "fa-fw text-muted"), dashboard_root_path %></li>
+							<li class="divider"></li>
+							<li><%= link_to icon("sign-out", t(".logout"), class: "fa-fw text-muted"), logout_path, method: "delete" %></li>
+						</ul>
+					</li>
+				<% else %>
+          <% unless controller_name == "main_pages" && action_name == "bank" %>
+            <li><%= link_to t(".signup"), signup_path %></li>
+          <% end %>
+          <li><%= link_to t(".login"), login_path %></li>
+				<% end %>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</nav>

@@ -1,0 +1,27 @@
+<% provide :title, t(".title") %>
+
+
+<div class="col-<%= default_grid_system %>-4 pull-right">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+		  <h3><%= t(".title") %></h3>
+		  <hr>
+			<%= form_for(:session, url: sessions_path, html: { class: "form" }) do |f| %>
+				<div class="form-group">
+					<%= f.text_field :email, class: "form-control", placeholder: User.human_attribute_name(:email) %>
+				</div>
+				<div class="form-group">
+					<%= f.password_field :password, class: "form-control", placeholder: User.human_attribute_name(:password) %>
+				</div>
+				<div class="checkbox">
+					<%= f.label :remember_me, class: "checkbox inline" do %>
+						<%= f.check_box :remember_me %>
+						<span><%= User.human_attribute_name(:remember_me) %></span>
+					<% end %>
+				</div>
+				<%= f.submit t(".submit"), class: "btn btn-primary" %>
+				<%= link_to t(".forgot_password"), "#" %>
+      <% end %>
+		</div>
+	</div>
+</div>

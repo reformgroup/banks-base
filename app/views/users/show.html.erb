@@ -1,0 +1,48 @@
+<% provide :title, @user.short_name %>
+
+<div class="col-<%= default_grid_system %>-9">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-<%= default_grid_system %>-12 lead">
+          <%= t ".title" %>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+	      <div class="col-<%= default_grid_system %>-4 text-center">
+          <%= image_tag @user.avatar.url, class: "img-circle avatar avatar-original center-block" %>
+        </div>
+        <div class="col-<%= default_grid_system %>-8">
+          <div class="row">
+            <div class="col-<%= default_grid_system %>-12">
+              <h1 class="only-bottom-margin"><%= @user.full_name %></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-<%= default_grid_system %>-6">
+              <span class="text-muted"><%= User.human_attribute_name "email" %>:</span> <%= @user.email %><br>
+              <span class="text-muted"><%= User.human_attribute_name "birth_date" %>:</span> <%= @user.birth_date %><br>
+              <span class="text-muted"><%= User.human_attribute_name "gender" %>:</span> <%= User.human_attribute_name "gender.#{@user.gender}" %><br><br>
+              <small class="text-muted">Created: <%= l @user.created_at, format: :long %></small>
+            </div>
+            <div class="col-<%= default_grid_system %>-6">
+              <div class="activity-mini">
+                <%= icon "comment-o", nil, class: "text-muted" %>
+              </div>
+              <div class="activity-mini">
+                <%= icon "thumbs-o-up", nil, class: "text-muted" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-<%= default_grid_system %>-12">
+          <hr>
+          <%= link_to icon("pencil", t(".edit_button")), edit_user_path, { class: "btn btn-default pull-right", role: "button" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<% provide :title, t(".title") %>
+
+<div class="col-<%= default_grid_system %>-4 pull-right">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+		  <h3><%= t ".title" %></h3>
+		  <hr>
+			<%= form_for(@user, html: { class: "form" }) do |f| %>
+				<div class="form-group">
+					<%= f.text_field :first_name, class: "form-control", placeholder: true %>
+					<%= error_messages @user, :first_name %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :last_name, class: "form-control", placeholder: true %>
+					<%= error_messages @user, :last_name %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :email, class: "form-control", placeholder: true %>
+					<%= error_messages @user, :email %>
+				</div>
+				<div class="form-group">
+					<%= f.password_field :password, class: "form-control", placeholder: true %>
+					<%= error_messages @user, :password %>
+				</div>
+				<div class="form-group">
+					<%= f.password_field :password_confirmation, class: "form-control", placeholder: true %>
+					<%= error_messages @user, :password_confirmation %>
+				</div>
+				<div class="form-group">
+					<%= f.label :birth_date %><br>
+					<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "form-control date-select selectpicker" %>
+					<%= error_messages @user, :birth_date %>
+				</div>
+				<label class="radio-inline">
+					<%= f.radio_button :gender, :male %>
+					<%= User.human_attribute_name("gender.male") %>
+				</label>
+				<label class="radio-inline">
+					<%= f.radio_button :gender, :female %>
+					<%= User.human_attribute_name("gender.female") %>
+				</label>
+				<br>
+				<%= error_messages @user, :gender %>
+				<br>
+				<%= f.submit t(".submit"), class: "btn btn-primary" %>
+		  <% end %>
+		</div>
+	</div>
+</div>

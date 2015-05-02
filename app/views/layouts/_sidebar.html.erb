@@ -1,0 +1,17 @@
+<div class="col-<%= default_grid_system %>-3 sidebar">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="sidebar">
+        <div class="text lead">
+          <%= t(".title") %>
+          <hr>
+        </div>
+				<ul class="nav nav-sidebar">
+          <li><%= sidebar_item(t(".profile"), my_profile_path(current_user), :user, active_controllers: ["my_profile"]) %></li>
+					<li><%= sidebar_item(t(".banks"), banks_path, :university, available_for_roles: ["superadmin", "admin"], active_controllers: ["banks"]) %></li>
+          <li><%= sidebar_item(t(".users"), users_path, :users, available_for_roles: ["superadmin", "admin"], active_controllers: ["users"], active_actions: ["index"]) %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

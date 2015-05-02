@@ -1,0 +1,23 @@
+ru:
+  users_controller:
+    create:
+      flash:
+        success:
+          title: "Поздравляем!"
+          message: "Вы зарегистрировались."
+    logged_in_user:
+      flash:
+        danger:
+          message: "Для начала нужно зайти в свою учётную запись или зарегистрироваться."
+  sessions_controller:
+    create:
+      flash:
+        danger:
+          title: "Ой, где-то ошибка!"
+          message: "Учётной записи с таким адресом электронной почты и паролем не существует."
+  banks_controller:
+    create:
+      flash:
+        success:
+          title: "Поздравляем!"
+          message: "Вы зарегистрировали Ваш банк."

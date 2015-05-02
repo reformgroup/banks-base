@@ -1,0 +1,32 @@
+//== Colors
+//
+
+$brand-primary: #04B3B3 !default;
+$brand-success: #8CC152 !default;
+$brand-info:    #3BAFDA !default;
+$brand-warning: #F6BB42 !default;
+$brand-danger:  #DA4453 !default;
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             #3c763d !default;
+$state-success-bg:               #b9df90 !default;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                #31708f !default;
+$state-info-bg:                  #7cd1ef !default;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:             #8a6d3b !default;
+$state-warning-bg:               #8a6d3b !default;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:              #a94442 !default;
+$state-danger-bg:                #f2838f !default;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+
+//== Forms
+//
+$input-border-focus: $brand-primary;

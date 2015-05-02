@@ -1,0 +1,39 @@
+@import "colors";
+@import "bootstrap/variables";
+
+body {
+	background: #f8f8f8;
+}
+
+/* Sidebar navigation */
+
+.sidebar .panel-body {
+	padding: 0px;
+	a {
+		color: #555;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+.nav-sidebar {
+	margin-bottom: 15px;
+}
+
+.sidebar .nav-sidebar > li > a {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.sidebar .text {
+  padding: 15px 20px 0px 20px;
+}
+
+.nav-sidebar > li > a.active,
+.nav-sidebar > li > a:hover.active,
+.nav-sidebar > li > a:focus.active {
+	border-left: 4px solid $brand-primary;
+	padding-left: 11px;
+	color: $brand-primary;
+	background-color: $list-group-hover-bg;
+}
