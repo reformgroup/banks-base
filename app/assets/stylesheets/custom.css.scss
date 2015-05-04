@@ -99,13 +99,15 @@ table td.avatar {
   padding: 0px 0px 15px 0px;
   margin: 15px;
   a {
-    padding-right: 15px;
-  }
-  a:last-child {
-    padding-right: 0px;
+    padding: 15px 15px 15px 0px;
+    display: inline-block;
   }
   .dropdown {
     display: inline-block;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
   }
 }
 
@@ -157,6 +159,19 @@ select.date-select {
 
 .only-bottom-margin {
   margin-top: 0px;
+}
+
+.pagination-block {
+  text-align: center;
+  div.pagination {
+    margin-bottom: 0px;
+  }
+  ul.pagination {
+    margin-bottom: 10px;
+  }
+  .pagination-info {
+    margin-bottom: 20px;
+  }
 }
 
 /* forms */

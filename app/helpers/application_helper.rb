@@ -67,24 +67,28 @@ module ApplicationHelper
   
   def dashboard_root_path
     case current_role
-    when "superadmin", "admin", "bank_admin", "bank_user" then users_path
+    when "admin" then admin_users_path
+    when "bank_user" then users_path
     else user_path(current_user)
     end
   end
   
   def user_label(user)
-    role = user.role
-    case role
-    when "superadmin", "admin" then content_tag(:span, role, class: "label label-default")
-    when "bank_admin", "bank_user" then content_tag(:span, role, class: "label label-success")
-    when "user" then content_tag(:span, role, class: "label label-warning")
+    role        = user.role
+    label_style = case role
+    when "admin"      then "default"
+    when "bank_user"  then "success"
+    when "user"       then "warning"
     end
+    content_tag :span, role, class: "label label-#{label_style}"
   end
   
-  def sidebar_item(link_text, link_path, icon_name, options)
+  def sidebar_item(link_text, link_path, icon_name, options = {})
+    options                       ||= {}
     options[:available_for_roles] ||= []
     options[:active_controllers]  ||= []
     options[:active_paths]        ||= []
+    options[:active_actions]      ||= []
     
     if current_role_include?(*options[:available_for_roles]) || options[:available_for_roles].empty?
       if (options[:active_controllers].include?(controller_name) || options[:active_paths].include?(request.path)) && (options[:active_actions].empty? ||  options[:active_actions].include?(action_name))

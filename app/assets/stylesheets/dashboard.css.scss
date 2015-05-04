@@ -32,8 +32,6 @@ body {
 .nav-sidebar > li > a.active,
 .nav-sidebar > li > a:hover.active,
 .nav-sidebar > li > a:focus.active {
-	border-left: 4px solid $brand-primary;
-	padding-left: 11px;
 	color: $brand-primary;
 	background-color: $list-group-hover-bg;
 }

@@ -1,4 +1,31 @@
 ru:
+  will_paginate:
+    previous_label: "Назад"
+    next_label: "Вперёд"
+    page_gap: "&hellip;"
+    page_entries_info:
+      multi_page:
+        few: "Показано %{from} - %{to} из %{count}"
+        many: "Показано %{from} - %{to} из %{count}"
+        one: "Показано %{from} - %{to} из %{count}"
+        other: "Показано %{from} - %{to} из %{count}"
+      multi_page_html:
+        few: "Показано <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        many: "Показано <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        one: "Показано  <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        other: "Показано <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+      single_page:
+        few: "Показано %{count}"
+        many: "Показано %{count}"
+        one: "Показано %{count}"
+        other: "Показано %{count}"
+        zero: "%{model} не найдены"
+      single_page_html:
+        few: "Показано <b>%{count}</b>"
+        many: "Показано <b>%{count}</b>"
+        one: "Показано <b>%{count}</b>"
+        other: "Показано <b>%{count}</b>"
+        zero: "%{model} не найдены"
   layouts:
     base_header:
       individual: "Частным клиентам"
@@ -33,7 +60,7 @@ ru:
       index:
         title: "Список пользователей"
         add_user_link: "Добавить пользователя"
-        filters_link: "Фильтр"
+        search: "Найти"
   users:
     signup:
       title: "Регистрация"

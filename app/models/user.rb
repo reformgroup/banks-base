@@ -82,6 +82,11 @@ class User < ActiveRecord::Base
     def not_younger
       18.years.ago
     end
+    
+    # Returns the users that match the search parameters.
+    def search(query)
+      where('last_name like ? OR first_name like ? OR middle_name like ?', "%#{query}%", "%#{query}%", "%#{query}%")
+    end
   end
   
   # Returns the user's age.

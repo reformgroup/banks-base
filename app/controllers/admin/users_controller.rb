@@ -1,12 +1,16 @@
 class Admin::UsersController < ApplicationController
   
-  before_action :logged_in_user, only: [:show, :edit, :update]
-  before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :logged_in_user
+  before_action :correct_role
   
   layout "dashboard"
   
   def index
-    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search]).paginate(page: params[:page])
+    else
+      @users = User.paginate(page: params[:page])
+    end
   end
   
   def show
@@ -73,8 +77,8 @@ class Admin::UsersController < ApplicationController
 
   # Before filters
 
-  # Confirms the correct user.
-  def correct_user
-    redirect_to root_url unless current_role_include? "superadmin", "admin"
+  # Confirms the correct role.
+  def correct_role
+    redirect_to root_path unless current_role? "admin"
   end
 end

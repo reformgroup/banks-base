@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, except: :signup
+  before_action :correct_role,   except: :signup
   before_action :correct_user,   only: [:show, :edit, :update]
   
   layout "dashboard", except: :signup
@@ -60,11 +61,14 @@ class UsersController < ApplicationController
 
   # Before filters
 
+  # Confirms the correct role.
+  def correct_role
+    redirect_to root_path unless current_role? "user"
+  end
+
   # Confirms the correct user.
   def correct_user
-    unless current_role_include? "superadmin", "admin"
-      @user = User.find(params[:id])
-      redirect_to root_url unless current_user? @user
-    end
+    user = User.find params[:id]
+    redirect_to root_path unless current_user? user
   end
 end

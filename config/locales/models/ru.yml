@@ -25,9 +25,7 @@ ru:
         female: "Женский"
         other: "Другое"
       user/role:
-        superadmin: "Суперадмин"
         admin: "Админ"
-        bank_admin: "Админ банка"
         bank_user: "Пользователь банка"
         user: "Пользователь"
       bank:
