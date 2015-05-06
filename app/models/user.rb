@@ -23,8 +23,8 @@
 class User < ActiveRecord::Base
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  VALID_NAME_REGEX  = /\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z/i
-  AVATAR_PATH       = "/system/users/avatars/:class/:attachment/:id_partition/:style"
+  VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
+  AVATAR_PATH       = "/system/:class/:attachment/:id_partition/:style"
   
   attr_accessor :remember_token
   
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, 
     { 
       styles: { original: "120x120#", medium: "50x50#", thumb: "40x40#" }, 
-      default_url: "/images/users/avatars/:style/missing.png",
+      default_url: "/images/:class/:attachment/:style/missing.png",
       url: "#{AVATAR_PATH}/:hash.:extension",
       path: ":rails_root/public#{AVATAR_PATH}/:hash.:extension",
       hash_data: AVATAR_PATH,
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
      
   validates :last_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :first_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
-  validates :middle_name, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }, if: :middle_name
+  validates :middle_name, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :gender, presence: true, length: { maximum: 6 }
   validates_date :birth_date, presence: true, on_or_before: lambda { User.not_younger }, on_or_after: lambda { User.not_older }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -91,17 +91,17 @@ class User < ActiveRecord::Base
   
   # Returns the user's age.
   def age
-    if birth_date
+    if self.birth_date
       now = Date.today
-      now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
+      now.year - self.birth_date.year - ((now.month > self.birth_date.month || (now.month == self.birth_date.month && now.day >= self.birth_date.day)) ? 0 : 1)
     end
   end
   
   # Returns true if birthday today.
   def birthday_today?
-    if birth_date
+    if self.birth_date
       now = Date.today
-      now.month == birth_date.month && now.day == birth_date.day
+      now.month == self.birth_date.month && now.day == self.birth_date.day
     end
   end
   
@@ -119,19 +119,26 @@ class User < ActiveRecord::Base
 
   # Forgets a user.
   def forget
-    update_attribute(:remember_digest, nil)
+    update_attribute :remember_digest, nil
   end
   
   # Returns short user name like "Fred S."
   def short_name
-    "#{first_name} #{last_name[0]}."
+    "#{self.first_name} #{self.last_name[0]}."
   end
   
   # Returns full user name like "Fred Smitt"
   def full_name(options = {})
-    name = "#{first_name}"
-    name << " #{middle_name}" if options[:middle_name] && middle_name
-    options[:last_name_first] ? "#{last_name} #{name}" : "#{name} #{last_name}"
+    name = "#{self.first_name}"
+    name << " #{self.middle_name}" if options[:middle_name] && middle_name
+    options[:last_name_first] ? "#{self.last_name} #{name}" : "#{name} #{self.last_name}"
+  end
+  
+  # Save and returns new random password.
+  def generate_password
+    random_password             = SecureRandom.hex(5)
+    self.password               = random_password
+    self.password_confirmation  = random_password
   end
   
   private
@@ -141,8 +148,9 @@ class User < ActiveRecord::Base
   end
   
   def set_name
-    self.first_name = normalize_name(self.first_name)
-    self.last_name = normalize_name(self.last_name)
+    self.last_name    = normalize_name self.last_name   unless self.last_name.blank?
+    self.first_name   = normalize_name self.first_name  unless self.first_name.blank?
+    self.middle_name  = normalize_name self.middle_name unless self.middle_name.blank?
   end
 
   def normalize_name(name)

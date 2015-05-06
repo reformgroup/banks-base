@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
   # Confirms the correct role.
   def correct_role
-    redirect_to root_path unless current_role? "user"
+    redirect_to root_path unless current_role? "admin"
   end
 
   # Confirms the correct user.

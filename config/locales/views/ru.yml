@@ -1,4 +1,15 @@
 ru:
+  buttons:
+    edit: "Редактировать"
+    create: "Создать"
+    delete: "Удалить"
+    cancel: "Отменить"
+    signup: "Зарегистрировать"
+    yes: "Да"
+    no: "Нет"
+  timestamp:
+    created_at: "Создан"
+    updated_at: "Изменён"
   will_paginate:
     previous_label: "Назад"
     next_label: "Вперёд"
@@ -38,8 +49,7 @@ ru:
       dashboard: "Панель управления"
     sidebar:
       title: "Панель управления"
-      profile: "Профиль"
-      banks: "Банки"
+      profile: "Мой профиль"
       users: "Пользователи"
   main_pages:
     individual:
@@ -51,16 +61,36 @@ ru:
       signup_button: "Зарегистрировать"
   admin:
     users:
-      signup:
-        title: "Регистрация"
-        submit: "Зарегистрироваться"
-      show:
-        title: "Профиль пользователя"
-        edit_button: "Редактировать"
       index:
         title: "Список пользователей"
         add_user_link: "Добавить пользователя"
-        search: "Найти"
+        search_button: "Найти"
+      show:
+        title: "Профиль пользователя"
+        edit_button: "Редактировать"
+      new:
+        title: "Новый пользователь"
+      edit:
+        title: "Редактирование профиля пользователя"
+      user:
+        title_new: "Новый пользователь"
+        title_create: "Новый пользователь"
+        title_edit: "Редактирование профиля пользователя"
+        title_update: "Редактирование профиля пользователя"
+        confirm_delete_button: "Удалить пользователя"
+        confirm_delete: >
+          Вы точно уверены, что хотите удалить пользователя? Вместе с пользователем будут удалены все связанные 
+          с ним записи (сообщения, комментарии и так далее). После удаления восстановить пользователя невозможно.
+        delete_button: "Удалить"
+        cancel_button: "Отменить"
+        password_note: > 
+          Пароль для нового пользователя будет создан автоматически и направлен на указанный адрес электронной почты
+        submit_new: "Создать"
+        submit_create: "Создать"
+        submit_edit: "Сохранить изменения"
+        submit_update: "Сохранить изменения"
+      user_avatar:
+        edit_avatar: "Изменить фото"
   users:
     signup:
       title: "Регистрация"

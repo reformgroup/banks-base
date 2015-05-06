@@ -24,7 +24,7 @@
               <span class="text-muted"><%= User.human_attribute_name "email" %>:</span><br><%= @user.email %><br><br>
               <span class="text-muted"><%= User.human_attribute_name "birth_date" %>:</span><br><%= l @user.birth_date %> (<%= @user.age %>)<br><br>
               <span class="text-muted"><%= User.human_attribute_name "gender" %>:</span><br><%= User.human_attribute_name "gender.#{@user.gender}" %><br><br>
-              <small class="text-muted">Created: <%= l @user.created_at, format: :long %></small>
+              <small class="text-muted"><%= t "timestamp.created_at" %>: <%= l @user.created_at, format: :long %></small>
             </div>
             <div class="col-<%= default_grid_system %>-6">
               <div class="activity-mini">

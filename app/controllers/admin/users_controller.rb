@@ -6,10 +6,10 @@ class Admin::UsersController < ApplicationController
   layout "dashboard"
   
   def index
-    if params[:search]
-      @users = User.search(params[:search]).paginate(page: params[:page])
+    @users = if params[:search]
+      User.search(params[:search]).paginate(page: params[:page])
     else
-      @users = User.paginate(page: params[:page])
+      User.paginate(page: params[:page])
     end
   end
   
@@ -17,17 +17,22 @@ class Admin::UsersController < ApplicationController
     @user = User.find params[:id]
   end
   
+  def new
+    @user = User.new
+  end
+  
   def edit
     @user = User.find params[:id]
   end
   
   def create
-    @user = User.new user_params
+    @user     = User.new main_user_params
+    password  = @user.generate_password
     if @user.save
-      flash[:success] = t ".flash.success.message"
-      redirect_to @user
+      flash[:success] = t ".flash.success.message" + password
+      redirect_to admin_user_path(@user)
     else
-      render "signup"
+      render "new"
     end
   end
   
@@ -35,16 +40,16 @@ class Admin::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
       flash[:success] = t ".flash.success.message"
-      redirect_to @user
+      redirect_to admin_user_path(@user)
     else
       render "edit"
     end
   end
   
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
     @user.destroy
-    redirect_to users_path
+    redirect_to admin_users_path
   end
 
   private
@@ -74,7 +79,7 @@ class Admin::UsersController < ApplicationController
                                   :role, 
                                   :avatar)
   end
-
+  
   # Before filters
 
   # Confirms the correct role.

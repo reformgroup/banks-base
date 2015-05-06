@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-<%= default_grid_system %>-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-<%= default_grid_system %>-12 lead">
+              <%= t ".title_#{action_name}" %>
+              <hr>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          <div class="row">
+            <div class="col-<%= default_grid_system %>-4 text-center">
+              <%= render "user_avatar", f: f %>
+            </div>
+            <div class="col-<%= default_grid_system %>-8">
+              <%= render "user_main_fields", f: f %>
+              <br>
+              <% if action_name == "edit" %>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-user-modal">
+                  <%= icon "trash-o", t(".confirm_delete_button") %>
+                </button>
+                <div id="delete-user-modal" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <p><%= t ".confirm_delete" %></p>
+                      </div><!-- /.modal-body -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t ".cancel_button" %></button>
+                        <%= link_to t(".delete_button"), admin_user_path(@user), method: :delete, class: "btn btn-danger" %>
+                      </div><!-- /.modal-footer -->
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+              <% else %>
+                <p class="text-danger"><%= t ".password_note" %></p>
+              <% end %>
+              <br>
+            </div><!-- /.col -->
+          </div>
+          <div class="row">
+            <div class="col-<%= default_grid_system %>-12">
+              <hr>
+              <button class="btn btn-default pull-right" type="submit"><%= icon "floppy-o", t(".submit_#{action_name}") %></button>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.panel-body -->
+      </div><!-- /.panel -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</div><!-- /.container -->

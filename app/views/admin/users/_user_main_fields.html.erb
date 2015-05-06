@@ -1,0 +1,40 @@
+<div class="form-group">
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name, class: "form-control" %>
+	<%= error_messages f.object, :last_name %>
+</div>
+<div class="form-group">
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name, class: "form-control" %>
+	<%= error_messages f.object, :first_name %>
+</div>
+<div class="form-group">
+	<%= f.label :middle_name %>
+	<%= f.text_field :middle_name, class: "form-control" %>
+	<%= error_messages f.object, :middle_name %>
+</div>
+<div class="form-group">
+	<%= f.label :email %>
+	<%= f.text_field :email, class: "form-control" %>
+	<%= error_messages f.object, :email %>
+</div>
+<div class="form-group">
+	<%= f.label :birth_date %><br>
+	<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "form-control date-select selectpicker" %>
+	<%= error_messages f.object, :birth_date %>
+</div>
+<div class="radio">
+	<label class="radio-inline">
+		<%= f.radio_button :gender, :male %>
+		<%= User.human_attribute_name "gender.male" %>
+	</label>
+	<label class="radio-inline">
+		<%= f.radio_button :gender, :female %>
+		<%= User.human_attribute_name "gender.female" %>
+	</label>
+	<label class="radio-inline">
+		<%= f.radio_button :gender, :other %>
+		<%= User.human_attribute_name "gender.other" %>
+	</label>
+  <%= error_messages f.object, :gender %>
+</div>
