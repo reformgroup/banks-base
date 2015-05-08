@@ -22,6 +22,8 @@
 
 class User < ActiveRecord::Base
   
+  include Searchable
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
   AVATAR_PATH       = "/system/:class/:attachment/:id_partition/:style"
@@ -81,11 +83,6 @@ class User < ActiveRecord::Base
     # Users can not be younger than this date.
     def not_younger
       18.years.ago
-    end
-    
-    # Returns the users that match the search parameters.
-    def search(query)
-      where('last_name like ? OR first_name like ? OR middle_name like ?', "%#{query}%", "%#{query}%", "%#{query}%")
     end
   end
   

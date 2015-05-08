@@ -1,0 +1,15 @@
+<tr>
+  <td class="avatar avatar-medium">
+    <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
+  </td>
+  <td>
+    <div class="col-<%= default_grid_system %>-8">
+      <%= link_to user.full_name, admin_user_path(user) %><br>
+      <%= user.email %>
+    </div>
+    <div class="col-<%= default_grid_system %>-4">
+      <div class="pull-right"><%= user_label user %></div><br>
+      <small class="text-muted pull-right"><%= t "timestamp.created_at" %>: <%= l user.created_at, format: :short %></small>
+    </div>
+  </td>
+</tr>

@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require_tree .
 //= require jquery.turbolinks
-
+  
 // Returns preview image before upload
   
 $(function() {

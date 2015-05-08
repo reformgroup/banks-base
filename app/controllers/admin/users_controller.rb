@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
   
   def index
     @users = if params[:search]
-      User.search(params[:search]).paginate(page: params[:page])
+      User.search(params[:search], :last_name, :first_name, :middle_name).paginate(page: params[:page])
     else
       User.paginate(page: params[:page])
     end
@@ -26,10 +26,10 @@ class Admin::UsersController < ApplicationController
   end
   
   def create
-    @user     = User.new main_user_params
-    password  = @user.generate_password
+    @user = User.new main_user_params
+    @user.generate_password
     if @user.save
-      flash[:success] = t ".flash.success.message" + password
+      flash[:success] = t ".flash.success.message"
       redirect_to admin_user_path(@user)
     else
       render "new"
@@ -48,8 +48,10 @@ class Admin::UsersController < ApplicationController
   
   def destroy
     @user = User.find params[:id]
-    @user.destroy
-    redirect_to admin_users_path
+    if @user.destroy
+      flash[:success] = t ".flash.success.message"
+      redirect_to admin_users_path
+    end
   end
 
   private
