@@ -6,8 +6,10 @@ class Admin::UsersController < ApplicationController
   layout "dashboard"
   
   def index
-    @users = if params[:search]
-      User.search(params[:search], :last_name, :first_name, :middle_name).paginate(page: params[:page])
+    @filter_options = [["Last name (a-z)", "last_name_asc"], ["Last name (z-a)", "last_name_desc"], ["Created at (new-old)", "created_at_desc"], ["Created at (old-new)", "created_at_asc"]]
+    @selected_filter_options = params[:filter] if params[:filter]
+    @users = if params[:search] || params[:filter]
+      User.search(params[:search], :last_name, :first_name, :middle_name).filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
     else
       User.paginate(page: params[:page])
     end

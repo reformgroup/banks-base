@@ -152,11 +152,6 @@ textarea {
 	margin-bottom: 10px;
 }
 
-select.date-select {
-	display: inline-block;
-  width: auto;
-}
-
 .only-bottom-margin {
   margin-top: 0px;
 }
@@ -178,6 +173,15 @@ select.date-select {
 
 .field_with_errors {
   @extend .has-error;
+}
+
+select.fix-width {
+  width: auto;
+}
+
+select.date-select {
+	display: inline-block;
+  width: auto;
 }
 
 /* select input style */
