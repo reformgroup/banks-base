@@ -6,10 +6,14 @@ class Admin::UsersController < ApplicationController
   layout "dashboard"
   
   def index
-    @filter_options = [["Last name (a-z)", "last_name_asc"], ["Last name (z-a)", "last_name_desc"], ["Created at (new-old)", "created_at_desc"], ["Created at (old-new)", "created_at_asc"]]
+    @filter_options = [["#{User.human_attribute_name "last_name"} (#{t('filter.string_asc')})", "last_name_asc"], 
+                      ["#{User.human_attribute_name "last_name"} (#{t('filter.string_desc')})", "last_name_desc"], 
+                      ["#{t('timestamp.created_at')} (#{t('filter.date_desc')})", "created_at_desc"], 
+                      ["#{t('timestamp.created_at')} (#{t('filter.date_asc')})", "created_at_asc"]]
+                      
     @selected_filter_options = params[:filter] if params[:filter]
     @users = if params[:search] || params[:filter]
-      User.search(params[:search], :last_name, :first_name, :middle_name).filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
+      User.search(params[:search], :last_name, :first_name, :middle_name, :email).filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
     else
       User.paginate(page: params[:page])
     end

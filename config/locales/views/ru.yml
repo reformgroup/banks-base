@@ -10,6 +10,13 @@ ru:
   timestamp:
     created_at: "Создан"
     updated_at: "Изменён"
+  filter:
+    string_asc: "а-я"
+    string_desc: "я-а"
+    date_asc: "от старых к новым"
+    date_desc: "от новых к старым"
+    number_asc: "0-9"
+    number_desc: "9-0"
   will_paginate:
     previous_label: "Назад"
     next_label: "Вперёд"
@@ -51,6 +58,9 @@ ru:
       title: "Панель управления"
       profile: "Мой профиль"
       users: "Пользователи"
+  shared:
+    user_avatar:
+      edit_avatar: "Изменить фото"
   main_pages:
     individual:
       title: "Частным клиентам"
@@ -65,6 +75,7 @@ ru:
         title: "Список пользователей"
         add_user_link: "Добавить пользователя"
         search_button: "Найти"
+        filter: "Сортировать по"
       show:
         title: "Профиль пользователя"
         edit_button: "Редактировать"
@@ -89,8 +100,6 @@ ru:
         submit_create: "Создать"
         submit_edit: "Сохранить изменения"
         submit_update: "Сохранить изменения"
-      user_avatar:
-        edit_avatar: "Изменить фото"
   users:
     signup:
       title: "Регистрация"

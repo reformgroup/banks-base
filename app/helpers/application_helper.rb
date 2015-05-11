@@ -82,21 +82,4 @@ module ApplicationHelper
     end
     content_tag :span, role, class: "label label-#{label_style}"
   end
-  
-  def sidebar_item(link_text, link_path, icon_name, options = {})
-    options                       ||= {}
-    options[:available_for_roles] ||= []
-    options[:active_controllers]  ||= []
-    options[:active_paths]        ||= []
-    options[:active_actions]      ||= []
-    
-    if current_role_include?(*options[:available_for_roles]) || options[:available_for_roles].empty?
-      if (options[:active_controllers].include?(controller_name) || options[:active_paths].include?(request.path)) && (options[:active_actions].empty? ||  options[:active_actions].include?(action_name))
-        options[:class] = "active"
-      end
-      link_to(link_path, options.slice(:class)) do
-        icon icon_name, link_text, class: "fa-fw"
-      end
-    end
-  end
 end
