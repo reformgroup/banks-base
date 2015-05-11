@@ -9,8 +9,7 @@ module Searchable
       return unless query
       raise ArgumentError, "Required parameter missing." unless attributes
       
-      query.gsub!(/[^[:alpha:][:blank:][:digit:]\-\'\.\_\:]/i, "")
-      query           = query.split(" ").map { |q| "%#{q}%" }
+      query           = query.gsub(/[^[:alpha:][:blank:][:digit:]\-\'\.\_\:]/i, "").split(" ").map { |q| "%#{q}%" }
       query_arr       = []
       sql_str         = ""
       query_for_attr  = ""

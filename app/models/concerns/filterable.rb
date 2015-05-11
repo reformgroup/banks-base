@@ -9,7 +9,7 @@ module Filterable
       return unless query
       raise ArgumentError, "Required parameter missing." unless filter_params
       
-      query.gsub!(/[^a-z_]/, "")
+      query = query.gsub(/[^a-z_]/, "")
       
       filter_type = query.slice(/(_asc|_desc)\z/).gsub("_", "").upcase
       query.gsub!(/(_asc|_desc)\z/, "")
