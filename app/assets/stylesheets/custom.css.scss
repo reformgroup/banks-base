@@ -3,7 +3,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/* mixins, variables, etc. */
+/*----- Mixins, variables, etc. -----*/
 
 $grayMediumLight: #eaeaea;
 
@@ -13,13 +13,13 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
-/* navbar */
+/*----- Navbar -----*/
 
 .navbar-custom {
   background-color: #FFFFFF;
 }
 
-/* avatar images */
+/*----- Avatar images -----*/
 
 img.avatar,
 div.avatar {
@@ -55,7 +55,7 @@ table td.avatar {
   width: 60px;
 }
 
-/* file upload */
+/*----- File upload -----*/
 
 .btn-file {
   position: relative;
@@ -78,7 +78,7 @@ table td.avatar {
   display: block;
 }
 
-/* panels */
+/*----- Panels -----*/
 
 .panel-heading {
   padding: 0px 0px 15px 0px;
@@ -111,7 +111,7 @@ table td.avatar {
   }
 }
 
-/* tables */
+/*----- Tables -----*/
 
 .table {
   tr:first-child {
@@ -126,7 +126,7 @@ table td.avatar {
   float: left;
 }
 
-/* universal */
+/*----- Universal -----*/
 
 html {
 	overflow-y: scroll;
@@ -169,7 +169,7 @@ textarea {
   }
 }
 
-/* forms */
+/*----- Forms -----*/
 
 .field_with_errors {
   @extend .has-error;
@@ -184,7 +184,7 @@ select.date-select {
   width: auto;
 }
 
-/* select input style */
+/*----- Select input style -----*/
 
 select.form-control {
   -webkit-appearance: button;
@@ -206,7 +206,7 @@ select.form-control {
   white-space: nowrap;
 }
 
-/* miscellaneous */
+/*----- Miscellaneous -----*/
 
 .debug_dump {
 	clear: both;

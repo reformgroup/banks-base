@@ -1,3 +1,5 @@
+/*----- Sidebar navigation -----*/
+
 @import "colors";
 @import "bootstrap/variables";
 
@@ -5,7 +7,7 @@ body {
 	background: #f8f8f8;
 }
 
-/* Sidebar navigation */
+/*----- Sidebar navigation -----*/
 
 .sidebar .panel-body {
 	padding: 0px;
@@ -23,6 +25,11 @@ body {
 .sidebar .nav-sidebar > li > a {
 	padding-right: 20px;
 	padding-left: 20px;
+}
+
+.sidebar .nav-sidebar .sidebar-child li a {
+	padding-right: 20px;
+	padding-left: 42px;
 }
 
 .sidebar .text {
