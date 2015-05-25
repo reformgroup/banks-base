@@ -18,7 +18,7 @@ gem "turbolinks"
 gem "uglifier",               "2.5.3"
 gem "validates_timeliness",   "~> 3.0.14"
 gem "will_paginate"
-gem 'userstamp', :git => 'git@github.com:kimkong/userstamp.git'
+gem "userstamp", :git => 'https://github.com/stricte/userstamp.git', :branch => 'rails4'
 
 group :development, :test do
   gem "annotate",           "~> 2.6.6"

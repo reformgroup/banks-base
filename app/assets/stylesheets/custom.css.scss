@@ -1,9 +1,9 @@
-@import "colors";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import"colors";
+@import"bootstrap";
+@import"font-awesome-sprockets";
+@import"font-awesome";
 
-/*----- Mixins, variables, etc. -----*/
+/*----- mixins, variables, etc. -----*/
 
 $grayMediumLight: #eaeaea;
 
@@ -13,35 +13,59 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
-/*----- Navbar -----*/
+/*----- navbar -----*/
 
 .navbar-custom {
   background-color: #FFFFFF;
 }
 
-/*----- Avatar images -----*/
+.sidebar-header {
+  margin: 24px 0px 15px 0px;
+}
 
-img.avatar,
-div.avatar {
+.content-nav {
+  margin: 0px 0px 4px 0px;
+}
+
+.content-header {
+  margin: 0px 0px 15px 0px;
+  .btn.btn-link {
+    padding: 0px;
+    border: 0px;
+    color: $text-muted;
+    &:hover,
+    &:focus {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+  a {
+    color: $text-muted;
+    &:hover,
+    &:focus {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+}
+
+/*----- avatar images -----*/
+
+img.avatar, div.avatar {
   background-size: cover;
   background-position: center;
   border: 1px solid $gray-lighter;
 }
 
-img.avatar.avatar-original,
-div.avatar.avatar-original {
+img.avatar.avatar-original, div.avatar.avatar-original {
   width: 122px;
   height: 122px;
 }
 
-img.avatar.avatar-medium,
-div.avatar.avatar-medium {
+img.avatar.avatar-medium, div.avatar.avatar-medium {
   width: 52px;
   height: 52px;
 }
 
-img.avatar.avatar-thumb,
-div.avatar.avatar-thumb {
+img.avatar.avatar-thumb, div.avatar.avatar-thumb {
   width: 42px;
   height: 42px;
 }
@@ -55,14 +79,14 @@ table td.avatar {
   width: 60px;
 }
 
-/*----- File upload -----*/
+/*----- file upload -----*/
 
 .btn-file {
   position: relative;
   overflow: hidden;
 }
 
-.btn-file input[type=file] {
+.btn-file input[type    = file] {
   position: absolute;
   top: 0;
   right: 0;
@@ -70,7 +94,7 @@ table td.avatar {
   min-height: 100%;
   font-size: 100px;
   text-align: right;
-  filter: alpha(opacity=0);
+  filter: alpha(opacity = 0);
   opacity: 0;
   outline: none;
   background: white;
@@ -78,7 +102,7 @@ table td.avatar {
   display: block;
 }
 
-/*----- Panels -----*/
+/*----- panels -----*/
 
 .panel-heading {
   padding: 0px 0px 15px 0px;
@@ -105,13 +129,12 @@ table td.avatar {
   .dropdown {
     display: inline-block;
   }
-  
   .input-group {
     margin-bottom: 15px;
   }
 }
 
-/*----- Tables -----*/
+/*----- tables -----*/
 
 .table {
   tr:first-child {
@@ -126,30 +149,30 @@ table td.avatar {
   float: left;
 }
 
-/*----- Universal -----*/
+/*----- universal -----*/
 
 html {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 body {
-	padding-top: 80px;
+  padding-top: 70px;
 }
 
 section {
-	overflow: auto;
+  overflow: auto;
 }
 
 textarea {
-	resize: vertical;
+  resize: vertical;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .center h1 {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .only-bottom-margin {
@@ -169,7 +192,7 @@ textarea {
   }
 }
 
-/*----- Forms -----*/
+/*----- forms -----*/
 
 .field_with_errors {
   @extend .has-error;
@@ -180,11 +203,11 @@ select.fix-width {
 }
 
 select.date-select {
-	display: inline-block;
+  display: inline-block;
   width: auto;
 }
 
-/*----- Select input style -----*/
+/*----- select input style -----*/
 
 select.form-control {
   -webkit-appearance: button;
@@ -206,12 +229,12 @@ select.form-control {
   white-space: nowrap;
 }
 
-/*----- Miscellaneous -----*/
+/*----- miscellaneous -----*/
 
 .debug_dump {
-	clear: both;
-	float: left;
-	width: 100%;
-	margin-top: 45px;
-	@include box_sizing;
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }

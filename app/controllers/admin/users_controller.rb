@@ -12,8 +12,13 @@ class Admin::UsersController < ApplicationController
                       ["#{t('timestamp.created_at')} (#{t('filter.date_asc')})", "created_at_asc"]]
                       
     @selected_filter_options = params[:filter] if params[:filter]
-    @users = if params[:search] || params[:filter]
+    
+    @users = if params[:search] && params[:filter]
       User.search(params[:search], :last_name, :first_name, :middle_name, :email).filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
+    elsif params[:search]
+      User.search(params[:search], :last_name, :first_name, :middle_name, :email).paginate(page: params[:page])
+    elsif params[:filter]
+      User.filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
     else
       User.paginate(page: params[:page])
     end
