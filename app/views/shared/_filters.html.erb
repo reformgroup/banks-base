@@ -1,0 +1,13 @@
+<% if @filter_options %>  
+  &nbsp;|&nbsp;
+  <button class="btn btn-link dropdown-toggle" type="button" id="filter-menu" data-toggle="dropdown" aria-expanded="true">
+    <i class="fa fa-filter"></i>&nbsp;<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="filter-menu">
+    <% @filter_options.each do |filter_option| %>
+      <li>
+        <%= filter_link_to(filter_option) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

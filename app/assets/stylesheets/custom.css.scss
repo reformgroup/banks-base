@@ -15,12 +15,9 @@ $grayMediumLight: #eaeaea;
 
 /*----- navbar -----*/
 
-.navbar-custom {
-  background-color: #FFFFFF;
-}
 
 .sidebar-header {
-  margin: 24px 0px 15px 0px;
+  margin: 0px 0px 15px 0px;
 }
 
 .content-nav {
@@ -44,6 +41,14 @@ $grayMediumLight: #eaeaea;
     &:focus {
       color: $navbar-default-link-hover-color;
     }
+  }
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+  }
+  h1 {
+    margin: 0px;
   }
 }
 
@@ -205,6 +210,22 @@ select.fix-width {
 select.date-select {
   display: inline-block;
   width: auto;
+}
+
+/*----- buttons -----*/
+
+.light-btn-transparent{
+
+	background: transparent;
+	color: #F2F2F2;
+
+	/* CSS Transition */
+	-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-o-transition: background .2s ease-in-out, border .2s ease-in-out;
+	transition: background .2s ease-in-out, border .2s ease-in-out;
+
 }
 
 /*----- select input style -----*/

@@ -11,10 +11,10 @@
           </div><!-- /.row -->
           <div class="row">
             <div class="col-<%= default_grid_system %>-4 text-center">
-              <%= render "shared/user_avatar", f: f %>
+              <%= render "shared/users/user_avatar", f: f %>
             </div>
             <div class="col-<%= default_grid_system %>-8">
-              <%= render "shared/user_main_fields", f: f %>
+              <%= render "shared/users/user_main_fields", f: f %>
               <br>
               <% if action_name == "edit" %>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-user-modal">

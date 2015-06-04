@@ -1,51 +1,17 @@
 <% provide :title, t(".title") %>
+<% provide :main_content_title, t(".title") %>
+<% provide :main_content_filter,  %>
 
 <div class="col-<%= default_grid_system %>-9">
-  <div class="content-header">
-    <div class="content-nav text-muted">
-      <small>First > Second</small>
-    </div>    
-    <div class="text-muted">
-      <div class="row">
-        <div class="col-xs-6">
-          <span class="lead"><%= t ".title" %></span>
-        </div>
-        <div class="col-xs-6">
-          <div class="pull-right">
-            <%= form_tag(admin_users_path, method: :get, id: "search-form") do %>
-            <% #text_field_tag :search, params[:search], class: "form-control" %>
-            <i class="fa fa-search"></i>&nbsp;<%= t ".search_button" %>
-            &nbsp;|&nbsp;
-            <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-              <i class="fa fa-filter"></i>&nbsp;<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <% @filter_options.each do |filter_option| %>
-                <% if params[:filter] == filter_option[1] %>
-                  <li><%= link_to icon("check", filter_option[0], class: "fa-fw"), params.merge({filter: filter_option[1]}) %></li>
-                <% else %>
-                  <li><%= link_to icon(nil, filter_option[0], class: "fa-fw"), params.merge({filter: filter_option[1]}) %></li>
-                <% end %>
-              <% end %>
-            </ul>
-            &nbsp;|&nbsp;
-            <%= link_to t(".add_user_link"), new_admin_user_path %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   
-  <div class="panel panel-default">
-    <div class="panel-body">
+  <%= render "shared/content_header" %>
+  
+
       <table class="table">
         <% @users.each do |user| %>
-        <%= render "shared/user_item", user: user %>
+          <%= render "shared/users/user_item", user: user %>
         <% end %>
       </table>
-    </div>
-  </div>
   
   <div class="pagination-block">
     <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
@@ -53,6 +19,5 @@
       <small><%= page_entries_info @users, model: User, html: false %></small>
     </div>
   </div>
-  
 </div>
 
