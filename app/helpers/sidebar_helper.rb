@@ -33,7 +33,7 @@ module SidebarHelper
         content.html_safe
       end
       content << content_tag(:div, class: collapse_classes, id: group_name) do
-        content_tag :ul, items, class: "nav nav-sidebar"
+        content_tag :ul, items, class: "nav-sidebar"
       end
       content.html_safe
     end

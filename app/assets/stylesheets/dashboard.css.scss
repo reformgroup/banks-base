@@ -6,30 +6,30 @@
 
 /*----- Sidebar navigation -----*/
 
-.sidebar .panel-body {
-  padding: 0px;
-  a {
-    color: #555;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+.sidebar {
+	margin-bottom: 15px;
 }
 
-.sidebar .nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
+.sidebar ul.nav-sidebar {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.sidebar ul.nav-sidebar li {
+	padding-top: 15px;
 }
 
 .sidebar .nav-sidebar .sidebar-child li a {
-  padding-right: 20px;
-  padding-left: 42px;
+	padding-right: 20px;
+	padding-left: 40px;
 }
 
-.sidebar .text {
-  padding: 15px 20px 0px 20px;
+.nav-sidebar > li > a {
+	color: $gray-light;
 }
 
-.nav-sidebar > li > a.active, .nav-sidebar > li > a:hover.active, .nav-sidebar > li > a:focus.active {
-  color: $brand-primary;
-  background-color: $list-group-hover-bg;
+.nav-sidebar > li > a.active, 
+.nav-sidebar > li > a:hover, 
+.nav-sidebar > li > a:focus {
+	color: $brand-primary;
 }

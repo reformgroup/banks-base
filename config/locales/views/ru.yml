@@ -3,6 +3,7 @@ ru:
     edit: "Редактировать"
     create: "Создать"
     delete: "Удалить"
+    save: "Сохранить"
     cancel: "Отменить"
     signup: "Зарегистрировать"
     yes: "Да"
@@ -59,6 +60,8 @@ ru:
       profile: "Мой профиль"
       users: "Пользователи"
   shared:
+    modals:
+      delete:
     user_avatar:
       edit_avatar: "Изменить фото"
   main_pages:

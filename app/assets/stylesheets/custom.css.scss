@@ -8,208 +8,206 @@
 $grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /*----- navbar -----*/
 
-
-.sidebar-header {
-  margin: 0px 0px 15px 0px;
-}
-
 .content-nav {
-  margin: 0px 0px 4px 0px;
+	margin: 0px 0px 4px 0px;
 }
 
 .content-header {
-  margin: 0px 0px 15px 0px;
-  .btn.btn-link {
-    padding: 0px;
-    border: 0px;
-    color: $text-muted;
-    &:hover,
-    &:focus {
-      color: $navbar-default-link-hover-color;
-    }
-  }
-  a {
-    color: $text-muted;
-    &:hover,
-    &:focus {
-      color: $navbar-default-link-hover-color;
-    }
-  }
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0px;
-    margin: 0px;
-  }
-  h1 {
-    margin: 0px;
-  }
+	margin: 0px 0px 15px 0px;
+	.btn.btn-link {
+		padding: 0px;
+		border: 0px;
+		color: $text-muted;
+		&:hover,
+		&:focus {
+			color: $navbar-default-link-hover-color;
+		}
+	}
+	a {
+		color: $text-muted;
+		&:hover,
+		&:focus {
+			color: $navbar-default-link-hover-color;
+		}
+	}
+	.breadcrumb {
+		background-color: transparent;
+		padding: 0px;
+		margin: 0px;
+	}
+	h1 {
+		margin: 0px;
+	}
 }
 
 /*----- avatar images -----*/
 
 img.avatar, div.avatar {
-  background-size: cover;
-  background-position: center;
-  border: 1px solid $gray-lighter;
+	background-size: cover;
+	background-position: center;
+	border: 1px solid $gray-lighter;
 }
 
 img.avatar.avatar-original, div.avatar.avatar-original {
-  width: 122px;
-  height: 122px;
+	width: 122px;
+	height: 122px;
 }
 
 img.avatar.avatar-medium, div.avatar.avatar-medium {
-  width: 52px;
-  height: 52px;
+	width: 52px;
+	height: 52px;
 }
 
 img.avatar.avatar-thumb, div.avatar.avatar-thumb {
-  width: 42px;
-  height: 42px;
+	width: 42px;
+	height: 42px;
 }
 
 .navbar-nav a.avatar {
-  padding-top: 4px;
-  padding-bottom: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 table td.avatar {
-  width: 60px;
+	width: 60px;
 }
 
 /*----- file upload -----*/
 
 .btn-file {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
-.btn-file input[type    = file] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  filter: alpha(opacity = 0);
-  opacity: 0;
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block;
+.btn-file input[type   = file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
 }
 
 /*----- panels -----*/
 
-.panel-heading {
-  padding: 0px 0px 15px 0px;
-  margin: 15px;
-  .panel-heading-right-links {
-    float: right !important;
-    bottom: 0px;
-    a {
-      padding-right: 15px;
-    }
-    a:last-child {
-      padding-right: 0px;
-    }
-  }
+.panel-default .panel-heading {
+	background-color: #f7f7f7;
+  border-width: 0px;
+	.panel-heading-right-links {
+		float: right !important;
+		bottom: 0px;
+		a {
+			padding-right: 15px;
+		}
+		a:last-child {
+			padding-right: 0px;
+		}
+	}
 }
 
 .panel-nav {
-  padding: 0px 0px 15px 0px;
-  margin: 15px;
-  a {
-    padding: 15px 15px 15px 0px;
-    display: inline-block;
-  }
-  .dropdown {
-    display: inline-block;
-  }
-  .input-group {
-    margin-bottom: 15px;
-  }
+	padding: 0px 0px 15px 0px;
+	margin: 15px;
+	a {
+		padding: 15px 15px 15px 0px;
+		display: inline-block;
+	}
+	.dropdown {
+		display: inline-block;
+	}
+	.input-group {
+		margin-bottom: 15px;
+	}
 }
 
 /*----- tables -----*/
 
 .table {
-  tr:first-child {
-    td {
-      border-top: 0;
-    }
-  }
+	tr:first-child {
+		td {
+			border-top: 0;
+		}
+	}
 }
 
 .activity-mini {
-  padding-right: 15px;
-  float: left;
+	padding-right: 15px;
+	float: left;
 }
 
 /*----- universal -----*/
 
 html {
-  overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 body {
-  padding-top: 70px;
+  background-color: #edecec;
+	padding-top: 70px;
 }
 
 section {
-  overflow: auto;
+	overflow: auto;
 }
 
 textarea {
-  resize: vertical;
+	resize: vertical;
 }
 
 .center {
-  text-align: center;
+	text-align: center;
 }
 
 .center h1 {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .only-bottom-margin {
-  margin-top: 0px;
+	margin-top: 0px;
 }
 
+/*----- pagination -----*/
+
 .pagination-block {
-  text-align: center;
-  div.pagination {
-    margin-bottom: 0px;
-  }
-  ul.pagination {
-    margin-bottom: 10px;
-  }
-  .pagination-info {
-    margin-bottom: 20px;
-  }
+	text-align: center;
+	div.pagination {
+		margin-bottom: 0px;
+	}
+	ul.pagination {
+		margin-bottom: 10px;
+	}
+	.pagination-info {
+		margin-bottom: 20px;
+	}
 }
 
 /*----- forms -----*/
 
 .field_with_errors {
-  @extend .has-error;
+	@extend .has-error;
 }
 
 select.fix-width {
-  width: auto;
+	width: auto;
 }
 
 select.date-select {
-  display: inline-block;
-  width: auto;
+	display: inline-block;
+	width: auto;
 }
 
 /*----- buttons -----*/
@@ -231,31 +229,31 @@ select.date-select {
 /*----- select input style -----*/
 
 select.form-control {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -webkit-padding-end: 20px;
-  -moz-padding-end: 20px;
-  background-image: image-url("select_arrow.png");
-  background-position: right 8px center;
-  background-repeat: no-repeat;
-  color: #555;
-  font-size: inherit;
-  margin: 0;
-  overflow: hidden;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-webkit-padding-end: 20px;
+	-moz-padding-end: 20px;
+	background-image: image-url("select_arrow.png");
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	color: #555;
+	font-size: inherit;
+	margin: 0;
+	overflow: hidden;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 /*----- miscellaneous -----*/
 
 .debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
 }

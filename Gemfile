@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "bcrypt-ruby",            "~> 3.1.5"
+gem "bcrypt",                 "~> 3.1.10"
 gem "bootstrap-sass",         "~> 3.3.4"
 gem "bootstrap-will_paginate"
 gem "coffee-rails",           "~> 4.1.0"
@@ -9,7 +9,7 @@ gem "globalize",              "~> 5.0.0"
 gem "jbuilder",               "~> 2.0"
 gem "jquery-rails"
 gem "jquery-turbolinks"
-gem "paperclip",              "~> 4.2"
+gem "paperclip",              "~> 4.3"
 gem "rails",                  "4.2.0"
 gem "sass-rails",             "~> 5.0"
 gem "sdoc",                   "~> 0.4.0", group: :doc
