@@ -10,7 +10,7 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
     role "user"
-    avatar { Faker::Avatar.image }
+    avatar { process_uri(Faker::Avatar.image) }
     
     factory :admin do
       role "admin"
@@ -29,7 +29,7 @@ FactoryGirl.define do
       password "123123"
       password_confirmation "123123"
       role "admin"
-      avatar { Faker::Avatar.image }
+      avatar { process_uri(Faker::Avatar.image) }
     end
   end
   

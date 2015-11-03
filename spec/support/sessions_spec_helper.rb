@@ -6,8 +6,8 @@ module SessionsSpecHelper
     user
   end
   
-  def create_login_superadmin
-    create_login_user :superadmin
+  def create_login_admin
+    create_login_user :admin
   end
   
   def login(user)
