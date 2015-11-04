@@ -61,13 +61,6 @@ class User < ActiveRecord::Base
     
   enum gender: [:male, :female, :other]
   enum role: [:admin, :bank_user, :user]
-  enum role: [:superadmin, #add, edit, delete all
-              :admin, #add, edit, delete all
-              :bank_superadmin, #delete bank
-              :bank_admin, #view all products
-              :bank_supervisor, #view all products
-              :bank_user, 
-              :user]
   
   class << self
     
@@ -85,7 +78,7 @@ class User < ActiveRecord::Base
     
     # Users can not be older than this date.
     def not_older
-      108.years.ago
+      104.years.ago
     end
     
     # Users can not be younger than this date.

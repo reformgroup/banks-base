@@ -1,17 +1,36 @@
 class UsersController < ApplicationController
   
-  before_action :logged_in_user, except: :signup
-  before_action :correct_role,   except: :signup
+  before_action :logged_in_user, except: [:signup, :create]
+  before_action :correct_role,   except: [:signup, :create]
   before_action :correct_user,   only: [:show, :edit, :update]
   
   layout "dashboard", except: :signup
   
   def index
-    @users = User.all
+    @filter_options = [["#{User.human_attribute_name "last_name"} (#{t('filter.string_asc')})", "last_name_asc"], 
+                      ["#{User.human_attribute_name "last_name"} (#{t('filter.string_desc')})", "last_name_desc"], 
+                      ["#{t('timestamp.created_at')} (#{t('filter.date_desc')})", "created_at_desc"], 
+                      ["#{t('timestamp.created_at')} (#{t('filter.date_asc')})", "created_at_asc"]]
+                      
+    @selected_filter_options = params[:filter] if params[:filter]
+    
+    @users = if params[:search] && params[:filter]
+      User.search(params[:search], :last_name, :first_name, :middle_name, :email).filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
+    elsif params[:search]
+      User.search(params[:search], :last_name, :first_name, :middle_name, :email).paginate(page: params[:page])
+    elsif params[:filter]
+      User.filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
+    else
+      User.paginate(page: params[:page])
+    end
   end
   
   def show
     @user = User.find params[:id]
+  end
+  
+  def new
+    @user = User.new
   end
   
   def edit
@@ -32,7 +51,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
-      flash[:success] = "Profile updated"
+      flash[:success] = t ".flash.success.message"
       redirect_to @user
     else
       render "edit"
@@ -41,8 +60,10 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find params[:id]
-    @user.destroy
-    redirect_to users_path
+    if @user.destroy
+      flash[:success] = t ".flash.success.message"
+      redirect_to users_path
+    end
   end 
   
   def signup
@@ -51,12 +72,30 @@ class UsersController < ApplicationController
 
   private
 
+  # All params
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :gender, :birth_date, :avatar)
+    params.require(:user).permit( :last_name, 
+                                  :first_name, 
+                                  :middle_name, 
+                                  :email, 
+                                  :gender, 
+                                  :birth_date, 
+                                  :password, 
+                                  :password_confirmation, 
+                                  :role, 
+                                  :avatar)
   end
   
+  # Params without password
   def main_user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :gender, :birth_date, :avatar)
+    params.require(:user).permit( :last_name, 
+                                  :first_name, 
+                                  :middle_name, 
+                                  :email, 
+                                  :gender, 
+                                  :birth_date,
+                                  :role, 
+                                  :avatar)
   end
 
   # Before filters
