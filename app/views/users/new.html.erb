@@ -1,5 +1,5 @@
 <% provide :title, t(".title") %>
 
-<%= form_for([:admin, @user]) do |f| %>
+<%= form_for(@user) do |f| %>
   <%= render "user", f: f %>
 <% end %>

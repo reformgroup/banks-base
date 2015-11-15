@@ -13,7 +13,6 @@
       <ul class="nav navbar-nav">
         <%= nav_link_to t(".individual"), root_path %>
         <%= nav_link_to t(".company"), company_path %>
-        <%= nav_link_to t(".bank"), bank_path %>
       </ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -42,8 +41,10 @@
             <li><%= link_to t(".signup"), signup_path %></li>
           <% end %>
           <li><%= link_to t(".login"), login_path %></li>
+          <div><%= link_to t(".bank"), bank_path, class: "btn btn-default light-btn-transparent navbar-btn", role: "button" %></div>
 				<% end %>
 			</ul>
+      
 		</div><!--/.nav-collapse -->
 	</div><!--/.container -->
 </nav><!--/.navbar -->

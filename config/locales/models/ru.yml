@@ -2,11 +2,15 @@ ru:
   activerecord:
     models:
       user:
+        few: Пользователя
+        many: Пользователей
         one: Пользователь
-        other: Пользователи
+        other: Пользователя
       bank:
+        few: Банка
+        many: Банков
         one: Банк
-        other: Банки
+        other: Банка
     attributes:
       user:
         first_name: "Имя"

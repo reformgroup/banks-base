@@ -21,7 +21,12 @@
 #
 
 class User < ActiveRecord::Base
-  
+
+  # Create users
+  #
+  #  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.safe_email, birth_date: 18.years.ago - Faker::Number.number(3).to_i.days, gender: [:male, :female, :other].sample, password: "foobar", password_confirmation: "foobar", role: "user", avatar: helper.process_uri(Faker::Avatar.image))
+  #
+
   include Searchable
   include Filterable
   

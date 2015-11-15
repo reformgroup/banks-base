@@ -1,18 +1,17 @@
 ru:
-  admin:
-    users:
-      create:
-        flash:
-          success:
-            message: "Пользователь создан."
-      update:
-        flash:
-          success:
-            message: "Информация обновлена."
-      destroy:
-        flash:
-          success:
-            message: "Пользователь удалён."
+  users:
+    create:
+      flash:
+        success:
+          message: "Пользователь создан."
+    update:
+      flash:
+        success:
+          message: "Информация обновлена."
+    destroy:
+      flash:
+        success:
+          message: "Пользователь удалён."
   users_controller:
     create:
       flash:

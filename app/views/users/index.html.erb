@@ -1,37 +1,39 @@
-<div class="col-<%= default_grid_system %>-9">  
-  <div class="content-header text-muted">
-    <div class="row">
-      <div class="col-xs-6">
-        <span class="lead"><%= t ".title" %></span>
-      </div>
-      <div class="col-xs-6">
-        <div class="pull-right">
-          <i class="fa fa-search"></i>&nbsp;Search&nbsp;&nbsp;|&nbsp;&nbsp;<i class="fa fa-filter"></i><span class="caret"></span>&nbsp;&nbsp;|&nbsp;&nbsp;Add user
-        </div>
-      </div>
+<% provide :title, t(".title") %>
+<% provide :main_content_title, t(".title") %>
+<% provide :main_content_filter,  %>
+
+<div class="row">
+
+    <div class="col-<%= default_grid_system %>-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+
+    </div><!-- /.col-lg-6 -->
+    <div class="col-<%= default_grid_system %>-6">
+      <div class="pull-right">
+      <%= link_to icon(:plus, t(".add_user_link")), new_user_path, class: "btn btn-default" %>
+    </div>
+    </div><!-- /.col-lg-6 -->
+ </div>
+ <br>
+ <br>
+<div class="row">
+  <div class="col-<%= default_grid_system %>-12">
+  <table class="table table-striped">
+    <% @users.each do |user| %>
+    <%= render "shared/users/user_item", user: user %>
+    <% end %>
+  </table>
+
+  <div class="pagination-block">
+    <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
+    <div class="pagination-info text-muted">
+      <small><%= page_entries_info @users, model: User, html: false %></small>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <table class="table table-hover">
-        <% @users.each do |user| %>
-          <tr>
-            <td class="avatar avatar-medium">
-              <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
-            </td>
-            <td>
-              <div class="col-<%= default_grid_system %>-8">
-                <%= link_to user.full_name, user_path(user) %><br>
-                <%= user.email %>
-              </div>
-              <div class="col-<%= default_grid_system %>-4">
-                <div class="pull-right"><%= user_label user %></div><br>
-                <small class="text-muted pull-right">Created at: <%= l user.created_at, format: :short %></small>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
+</div>
 </div>

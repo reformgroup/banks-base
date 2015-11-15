@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
-  root                          'main_pages#individual'
-  get     '/company',       to: 'main_pages#company'
-  get     '/bank',          to: 'main_pages#bank'
-  get     '/signup',        to: 'users#signup'
-  get     '/banks/signup',  to: 'banks#signup'
-  get     '/login',         to: 'sessions#new'
-  delete  '/logout',        to: 'sessions#destroy'
   
-  namespace :admin do
+  scope "(:locale)", locale: /en|ru/ do
+    root                          'main_pages#individual'
+    get     '/company',       to: 'main_pages#company'
+    get     '/bank',          to: 'main_pages#bank'
+    get     '/signup',        to: 'signup_users#new'
+    get     '/banks/signup',  to: 'banks#signup'
+    get     '/login',         to: 'sessions#new'
+    delete  '/logout',        to: 'sessions#destroy'
+
+    resources :signup_users, only: [:new, :create]
     resources :users
     resources :my_profile, only: [:show, :edit, :update, :destroy]
+    resources :banks
+    resources :sessions, only: [:new, :create, :destroy]
   end
-  
-  resources :users
-  resources :my_profile
-  resources :banks
-  resources :sessions, only: [:new, :create, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

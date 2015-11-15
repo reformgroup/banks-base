@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   
-  before_action :logged_in_user, except: [:signup, :create]
-  before_action :correct_role,   except: [:signup, :create]
-  before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :logged_in_user
+  before_action :correct_role
   
-  layout "dashboard", except: :signup
+  layout "dashboard"
   
   def index
     @filter_options = [["#{User.human_attribute_name "last_name"} (#{t('filter.string_asc')})", "last_name_asc"], 
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".flash.success.message"
       redirect_to @user
     else
-      render "signup"
+      render "new"
     end
   end
   
@@ -64,10 +63,6 @@ class UsersController < ApplicationController
       flash[:success] = t ".flash.success.message"
       redirect_to users_path
     end
-  end 
-  
-  def signup
-    @user = User.new
   end
 
   private
@@ -102,12 +97,12 @@ class UsersController < ApplicationController
 
   # Confirms the correct role.
   def correct_role
-    redirect_to root_path unless current_role? "admin"
+    not_found unless current_role? "admin"
   end
 
   # Confirms the correct user.
   def correct_user
     user = User.find params[:id]
-    redirect_to root_path unless current_user? user
+    not_found unless current_user? user
   end
 end

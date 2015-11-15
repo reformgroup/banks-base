@@ -19,6 +19,22 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  # Uri redirections form http to https
+  def process_uri(uri)
+     avatar_url = URI.parse(uri)
+     avatar_url.scheme = 'https'
+     avatar_url.to_s
+  end
+
+  # Return HTML code with 
+  def time_ago_tag(from_time, options = {})
+    content_tag(:span, "#{time_ago_in_words(from_time)} #{t('ago')}", "data-toggle": "tooltip", "data-placement": "bottom", title: l(from_time, format: :long)) if from_time
+  end
+  
+  def not_found
+    raise ActionController::RoutingError.new "Not Found"
+  end
   
   def default_grid_system
     "md"
@@ -67,7 +83,7 @@ module ApplicationHelper
   
   def dashboard_root_path
     case current_role
-    when "admin" then admin_users_path
+    when "admin" then users_path
     when "bank_user" then users_path
     else user_path(current_user)
     end

@@ -13,7 +13,55 @@ $grayMediumLight: #eaeaea;
 	box-sizing: border-box;
 }
 
+/*----- typography -----*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+mark,
+del,
+s,
+ins,
+u,
+small,
+em,
+abbr,
+address,
+a,
+a:hover,
+a:focus,
+p,
+span,
+div,
+ul > li > a,
+.btn,
+.lead,
+.nav.navbar-nav {
+  font-weight: 300;
+}
+
+label,
+span.label {
+  font-weight: normal;
+}
+
 /*----- navbar -----*/
+
+.navbar-default {
+  background-color: #FFF;
+}
+
+.nav.navbar-nav > div {
+  float: left;
+  position: relative;
+  margin: 0px 15px 0px 15px;
+  a {
+    color: #777;
+  }
+}
 
 .content-nav {
 	margin: 0px 0px 4px 0px;
@@ -76,7 +124,7 @@ img.avatar.avatar-thumb, div.avatar.avatar-thumb {
 }
 
 table td.avatar {
-	width: 60px;
+	width: 50px;
 }
 
 /*----- file upload -----*/
@@ -105,8 +153,9 @@ table td.avatar {
 /*----- panels -----*/
 
 .panel-default .panel-heading {
-	background-color: #f7f7f7;
+	background-color: #FFF;
   border-width: 0px;
+  margin-bottom: 10px;
 	.panel-heading-right-links {
 		float: right !important;
 		bottom: 0px;
@@ -156,7 +205,8 @@ html {
 }
 
 body {
-  background-color: #edecec;
+  background-color: #F0F0F0;
+  //background-color: #edecec;
 	padding-top: 70px;
 }
 
@@ -215,7 +265,6 @@ select.date-select {
 .light-btn-transparent{
 
 	background: transparent;
-	color: #F2F2F2;
 
 	/* CSS Transition */
 	-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
