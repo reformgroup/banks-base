@@ -39,7 +39,8 @@ div,
 ul > li > a,
 .btn,
 .lead,
-.nav.navbar-nav {
+.nav.navbar-nav,
+.table th {
   font-weight: 300;
 }
 
@@ -185,12 +186,23 @@ table td.avatar {
 
 /*----- tables -----*/
 
-.table {
-	tr:first-child {
-		td {
-			border-top: 0;
-		}
-	}
+.table.full-width {
+  tr {
+    th:first-child, td:first-child {
+      padding-left: 15px;
+    }
+    th:last-child, td:last-child {
+      padding-right: 15px;
+    }
+  }
+}
+
+.table td {
+  border-top: none !important;
+}
+
+.table.table-striped th {
+  border-bottom-width: 1px;
 }
 
 .activity-mini {

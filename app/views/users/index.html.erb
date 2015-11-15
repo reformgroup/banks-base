@@ -22,13 +22,22 @@
  <br>
  <br>
 <div class="row">
-  <div class="col-<%= default_grid_system %>-12">
-  <table class="table table-striped">
+  
+  <table class="table table-striped full-width">
+    <thead>
+      <tr class="text-muted">
+        <th><%= User.model_name.human %></th>
+        <th><%= User.human_attribute_name "email" %></th>
+        <th><%= User.human_attribute_name "role" %></th>
+        <th>Username</th>
+      </tr>
+    </thead>
     <% @users.each do |user| %>
     <%= render "shared/users/user_item", user: user %>
     <% end %>
   </table>
-
+  
+  <div class="col-<%= default_grid_system %>-12">
   <div class="pagination-block">
     <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
     <div class="pagination-info text-muted">
