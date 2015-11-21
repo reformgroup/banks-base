@@ -48,6 +48,7 @@ ru:
         zero: "%{model} не найдены"
   layouts:
     base_header:
+      language: "Язык"
       individual: "Частным клиентам"
       company: "Для бизнеса"
       bank: "Банкам"

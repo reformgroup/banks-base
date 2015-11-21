@@ -45,7 +45,8 @@ ul > li > a,
 }
 
 label,
-span.label {
+span.label,
+b {
   font-weight: normal;
 }
 
@@ -220,6 +221,10 @@ body {
   background-color: #F0F0F0;
   //background-color: #edecec;
 	padding-top: 70px;
+}
+
+.sidebar-content {
+  margin-left: 225px;
 }
 
 section {

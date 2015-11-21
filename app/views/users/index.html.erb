@@ -26,14 +26,14 @@
   <table class="table table-striped full-width">
     <thead>
       <tr class="text-muted">
-        <th><%= User.model_name.human %></th>
-        <th><%= User.human_attribute_name "email" %></th>
-        <th><%= User.human_attribute_name "role" %></th>
-        <th><%= t "timestamp.created_at" %></th>
+        <th><%= User.model_name.human %> <%= link_to icon :sort, class:"text-muted" %></th>
+        <th><%= User.human_attribute_name "email" %> <%= link_to icon :sort, class:"text-muted" %></th>
+        <th><%= User.human_attribute_name "role" %> <%= link_to icon :sort, class:"text-muted" %></th>
+        <th><%= t "timestamp.created_at" %> <%= link_to icon :sort, class:"text-muted" %></th>
       </tr>
     </thead>
     <% @users.each do |user| %>
-    <%= render "shared/users/user_item", user: user %>
+      <%= render "shared/users/user_item", user: user %>
     <% end %>
   </table>
 

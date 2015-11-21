@@ -7,7 +7,33 @@
 /*----- Sidebar navigation -----*/
 
 .sidebar {
-	margin-bottom: 15px;
+	//margin-bottom: 15px;
+  
+  color: #b3b3b3;
+  padding: 15px;
+  background-color: #3D3C3C;
+  bottom: 0px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 14px;
+  left: 225px;
+  line-height: 20px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: -225px;
+  margin-right: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 40px;
+  position: fixed;
+  top: 51px;
+  width: 225px;
+}
+
+.sidebar .sidebar-header {
+  color: $gray-lighter;
 }
 
 .sidebar ul.nav-sidebar {
@@ -25,7 +51,7 @@
 }
 
 .nav-sidebar > li > a {
-	color: $gray-light;
+	color: $gray-lighter;
 }
 
 .nav-sidebar > li > a.active, 
