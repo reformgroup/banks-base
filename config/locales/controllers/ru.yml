@@ -1,34 +1,36 @@
 ru:
-  users:
-    create:
+  application:
+    logged_in_user:
       flash:
-        success:
-          message: "Пользователь создан."
-    update:
-      flash:
-        success:
-          message: "Информация обновлена."
-    destroy:
-      flash:
-        success:
-          message: "Пользователь удалён."
-  users_controller:
+        danger:
+          message: "Для начала нужно зайти в свою учётную запись или зарегистрироваться."
+  dashboard:
+    users:
+      create:
+        flash:
+          success:
+            message: "Пользователь создан."
+      update:
+        flash:
+          success:
+            message: "Информация обновлена."
+      destroy:
+        flash:
+          success:
+            message: "Пользователь удалён."
+  signup_users:
     create:
       flash:
         success:
           title: "Поздравляем!"
           message: "Вы зарегистрировались."
-    logged_in_user:
-      flash:
-        danger:
-          message: "Для начала нужно зайти в свою учётную запись или зарегистрироваться."
-  sessions_controller:
+  sessions:
     create:
       flash:
         danger:
           title: "Ой, где-то ошибка!"
           message: "Учётной записи с таким адресом электронной почты и паролем не существует."
-  banks_controller:
+  banks:
     create:
       flash:
         success:

@@ -5,7 +5,7 @@
 	  <div class="panel-body">
 		  <h3><%= t ".title" %></h3>
 		  <hr>
-			<%= form_for(@user, url: signup_users_path, html: { class: "form" }) do |f| %>
+			<%= form_for([:dashboard, @user], url: signup_users_path, html: { class: "form" }) do |f| %>
 				<div class="form-group">
 					<%= f.text_field :first_name, class: "form-control", placeholder: true %>
 					<%= error_messages @user, :first_name %>

@@ -4,14 +4,14 @@
 	</div>
 	<ul class="nav-sidebar">
 	  <%= sidebar_item(t(".profile"), my_profile_path(current_user), :user, active_controllers: ["my_profile"]) %>
-	  <%= sidebar_item(t(".users"), users_path, :users, available_for_roles: ["admin"], active_controllers: ["users"]) %>
+	  <%= sidebar_item(t(".users"), dashboard_users_path, :users, available_for_roles: ["admin"], active_controllers: ["users"]) %>
 	</ul>
 </div>
 
 
 <!--
   <%= sidebar_group(t(".settings"), :cog, :settings) do %>
-    <%= sidebar_item(t(".locales"), users_path, nil, active_controllers: ["my_profile"]) %>
-    <%= sidebar_item(t(".roles"), users_path, nil, available_for_roles: ["admin"], active_controllers: ["users"]) %>
+    <%= sidebar_item(t(".locales"), dashboard_users_path, nil, active_controllers: ["my_profile"]) %>
+    <%= sidebar_item(t(".roles"), dashboard_users_path, nil, available_for_roles: ["admin"], active_controllers: ["users"]) %>
   <% end %>
 --> 

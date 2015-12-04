@@ -11,12 +11,12 @@ Rails.application.routes.draw do
 
     resources :signup_users, only: [:new, :create]
     resources :sessions, only: [:new, :create, :destroy]
+    resources :my_profile, only: [:show, :edit, :update, :destroy]
     
-    #scope '/dashboard' do
-      resources :my_profile, only: [:show, :edit, :update, :destroy]
+    namespace :dashboard do
       resources :users
       resources :banks
-    #end
+    end
     
   end
   

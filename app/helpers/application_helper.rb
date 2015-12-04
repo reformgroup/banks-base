@@ -83,9 +83,9 @@ module ApplicationHelper
   
   def dashboard_root_path
     case current_role
-    when "admin" then users_path
-    when "bank_user" then users_path
-    else user_path(current_user)
+    when "admin" then dashboard_users_path
+    when "bank_user" then dashboard_users_path
+    else my_profile_path(current_user)
     end
   end
   
