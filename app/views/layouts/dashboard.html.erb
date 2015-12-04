@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true, cache: true %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+  <%= render 'layouts/base_header' %>
+  <%= render 'layouts/sidebar' %>
+  <div class="container-fluid sidebar-content">
+    <div class="row">
+      
+      <div class="col-<%= default_grid_system %>-12">
+        <div class="row">
+          <div class="col-<%= default_grid_system %>-12">
+            <%= render 'layouts/flash' %>
+          </div><!-- /.col -->
+          <div class="col-<%= default_grid_system %>-12">
+            <div class="content-header">
+              <h4 class="text-muted"><%= t ".#{controller_name}.main_title" %></h4>
+            </div>
+          </div><!-- /.col -->
+          <div class="col-<%= default_grid_system %>-12">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4><%= t ".#{controller_name}.#{action_name}_title" %></h4></div>
+              <div class="panel-body">
+                <%= yield %>
+              </div><!-- /.panel-body -->
+            </div><!-- /.panel -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+        <%= render 'layouts/debug' %>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
+</body>
+</html>

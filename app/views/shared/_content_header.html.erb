@@ -1,0 +1,33 @@
+<div class="page-header">
+  <!--
+  <div class="content-nav text-muted">
+  <small>
+  <ul class="breadcrumb">
+  <li><a href="#">Home</a> <span class="divider"></span></li>
+  <li><a href="#">Library</a> <span class="divider"></span></li>
+  <li class="active">Data</li>
+  </ul>
+  </small>
+  </div>
+  -->
+  <div class="text-muted">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2><%= t ".title" %></h2>
+      </div>
+      <div class="col-xs-6">
+        <div class="pull-right">
+          <!--
+          <%= form_tag(dashboard_users_path, method: :get, id: "search-form") do %>
+            <% #text_field_tag :search, params[:search], class: "form-control" %>
+            <%= icon :search, t(".search_button") %>
+            <%= render "shared/filters" %>
+          <% end %>
+          &nbsp;|&nbsp;
+          -->
+          <%= link_to icon(:plus, t(".add_user_link")), new_dashboard_user_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

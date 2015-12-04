@@ -1,0 +1,5 @@
+ru:
+  helpers:
+    submit:
+      create: "Добавить"
+      update: "Редактировать"

@@ -1,0 +1,5 @@
+<% provide :title, t(".title") %>
+
+<%= form_for([:dashboard, @user]) do |f| %>
+  <%= render "user", f: f %>
+<% end %>

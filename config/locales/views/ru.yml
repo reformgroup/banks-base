@@ -1,0 +1,119 @@
+ru:
+  buttons:
+    edit: "Редактировать"
+    create: "Создать"
+    delete: "Удалить"
+    save: "Сохранить"
+    cancel: "Отменить"
+    signup: "Зарегистрировать"
+    yes: "Да"
+    no: "Нет"
+  timestamp:
+    created_at: "Создан"
+    updated_at: "Изменён"
+  ago: "назад"
+  filter:
+    string_asc: "а-я"
+    string_desc: "я-а"
+    date_asc: "от старых к новым"
+    date_desc: "от новых к старым"
+    number_asc: "0-9"
+    number_desc: "9-0"
+  will_paginate:
+    previous_label: "Назад"
+    next_label: "Вперёд"
+    page_gap: "&hellip;"
+    page_entries_info:
+      multi_page:
+        few: "Показано %{from} - %{to} из %{count}"
+        many: "Показано %{from} - %{to} из %{count}"
+        one: "Показано %{from} - %{to} из %{count}"
+        other: "Показано %{from} - %{to} из %{count}"
+      multi_page_html:
+        few: "Показано <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        many: "Показано <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        one: "Показано  <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        other: "Показано <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+      single_page:
+        few: "Показано %{count}"
+        many: "Показано %{count}"
+        one: "Показано %{count}"
+        other: "Показано %{count}"
+        zero: "%{model} не найдены"
+      single_page_html:
+        few: "Показано <b>%{count}</b>"
+        many: "Показано <b>%{count}</b>"
+        one: "Показано <b>%{count}</b>"
+        other: "Показано <b>%{count}</b>"
+        zero: "%{model} не найдены"
+  layouts:
+    base_header:
+      language: "Язык"
+      individual: "Частным клиентам"
+      company: "Для бизнеса"
+      bank: "Банкам"
+      signup: "Регистрация"
+      login: "Войти"
+      logout: "Выйти"
+      profile: "Мой профиль"
+      dashboard: "Панель управления"
+    sidebar:
+      title: "Панель управления"
+      profile: "Мой профиль"
+      users: "Пользователи"
+    dashboard:
+      users:
+        main_title: "Пользователи"
+        index_title: "Список пользователей"
+        show_title: "Профиль пользователя"
+        new_title: "Новый пользователь"
+        edit_title: "Редактировать профиль пользователя"
+  shared:
+    users:
+      user_avatar:
+        edit_avatar: "Изменить фото"
+  main_pages:
+    individual:
+      title: "Частным клиентам"
+    company:
+      title: "Для бизнеса"
+    banks:
+      title: "Банкам"
+      signup_button: "Зарегистрировать"
+  dashboard:
+    users:
+      index:
+        title: "Список пользователей"
+        add_user_link: "Добавить пользователя"
+        search_button: "Найти"
+        filter: "Сортировать по"
+      show:
+        title: "Профиль пользователя"
+        edit_button: "Редактировать"
+      new:
+        title: "Новый пользователь"
+      edit:
+        title: "Редактирование профиля пользователя"
+      user:
+        title_new: "Новый пользователь"
+        title_create: "Новый пользователь"
+        title_edit: "Редактирование профиля пользователя"
+        title_update: "Редактирование профиля пользователя"
+        confirm:
+          delete:
+            button: "Удалить пользователя"
+            title: "Вы точно уверены, что хотите удалить пользователя?"
+            body: >
+              Вместе с пользователем будут удалены все связанные с ним записи (сообщения, комментарии и так далее). 
+              После удаления восстановить пользователя невозможно.
+        password_note: > 
+          Пароль для нового пользователя будет создан автоматически и направлен на указанный адрес электронной почты
+  banks:
+    signup:
+      title: "Регистрация"
+      submit: "Зарегистрировать"
+  sessions:
+    new:
+      title: "Вход"
+      forgot_password: "Забыли пароль?"
+      submit: "Войти"

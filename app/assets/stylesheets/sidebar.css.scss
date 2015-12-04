@@ -1,0 +1,61 @@
+/*----- Sidebar navigation -----*/
+
+@import"colors";
+@import"bootstrap/variables";
+
+
+/*----- Sidebar navigation -----*/
+
+.sidebar {
+	//margin-bottom: 15px;
+  
+  color: #b3b3b3;
+  padding: 15px;
+  background-color: #3D3C3C;
+  bottom: 0px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 14px;
+  left: 225px;
+  line-height: 20px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: -225px;
+  margin-right: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 40px;
+  position: fixed;
+  top: 51px;
+  width: 225px;
+}
+
+.sidebar .sidebar-header {
+  color: $gray-lighter;
+}
+
+.sidebar ul.nav-sidebar {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.sidebar ul.nav-sidebar li {
+	padding-top: 15px;
+}
+
+.sidebar .nav-sidebar .sidebar-child li a {
+	padding-right: 20px;
+	padding-left: 40px;
+}
+
+.nav-sidebar > li > a {
+	color: $gray-lighter;
+}
+
+.nav-sidebar > li > a.active, 
+.nav-sidebar > li > a:hover, 
+.nav-sidebar > li > a:focus {
+	color: $brand-primary;
+}

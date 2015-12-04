@@ -1,0 +1,7 @@
+<% if Rails.env.development? %>
+<div class="row">
+  <div class="col-<%= default_grid_system %>-12">
+    <%= debug(params) %>
+  </div>
+</div>
+<% end %>
