@@ -76,9 +76,12 @@ module ApplicationHelper
   
   def nav_link_to(link_text, link_path)
     options = {}
-    options[:class] = "active" if request.path == link_path.split("?")[0]
-
-    content_tag(:li, options) { link_to link_text, link_path }
+    options[:class] = "nav-item" 
+    if request.path == link_path.split("?")[0]
+      options[:class] << " active" 
+      link_text << " <span class=""sr-only"">(current)</span>"
+    end
+    content_tag(:li, options) { link_to link_text.html_safe, link_path, class: "nav-link" }
   end
   
   def dashboard_root_path
