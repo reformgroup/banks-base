@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title><%= full_title(yield(:title)) %></title>
-		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-		<%= javascript_include_tag "application", "data-turbolinks-track" => true, cache: true %>
-		<%= csrf_meta_tags %>
-		<%= render 'layouts/shim' %>
-	</head>
-	<body>
-		<%= render 'layouts/base_header' %>
-		<div class="container">
-			<div class="row">
-        <div class="col-<%= default_grid_system %>-12">
-				  <%= render 'layouts/flash' %>
-        </div>
-				<%= yield %>
-			</div>
-			<%= render 'layouts/debug' %>
-		</div>
-	</body>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true, cache: true %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+  <%= render 'layouts/base_header' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-<%= default_grid_system %>-12">
+        <%= render 'layouts/flash' %>
+      </div>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+      <%= yield %>
+    </div>
+    
+  </div>
+  <footer id="footer" class="bg-inverse p-a">
+    <div class="container">
+      <p class="text-muted"><%= render 'layouts/debug' %></p>
+    </div>
+  </footer>
+</body>
 </html>
