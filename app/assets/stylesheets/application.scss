@@ -12,8 +12,9 @@
  *
  */
 @import "bootstrap";
+@import "variables";
 
-/*----- mixins, variables, etc. -----*/
+// Mixins, variables, etc.
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
@@ -21,7 +22,35 @@
 	box-sizing: border-box;
 }
 
-/*----- universal -----*/
+a, a:hover, a:focus,
+abbr, address,
+h1, h2, h3, h4, h5, h6,
+mark,
+del,
+s,
+ins,
+u,
+small,
+em,
+p,
+span,
+div,
+ul > li > a,
+.btn,
+.lead,
+.nav.navbar-nav,
+.table th {
+  font-weight: 300;
+}
+
+label,
+span.label,
+b {
+  font-weight: normal;
+}
+
+
+// Universal
 
 html {
   position: relative;
@@ -31,24 +60,30 @@ html {
 
 body {
 	padding-top: 70px; /* Margin top by navbar height */
-  margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-#footer {
+// Footer
+
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  background-color: #f5f5f5;
+  background-color: $inverse;
 }
 
+.footer-dark {
+  hr {
+    border-color: $footer-dark-color;
+  }
+}
 
-/*----- miscellaneous -----*/
+// Miscellaneous
 
 .debug_dump {
 	clear: both;
 	float: left;
 	width: 100%;
-	margin-top: 45px;
+	margin-top: 15px;
   @include box_sizing;
+  color: $footer-dark-color;
 }

@@ -1,10 +1,11 @@
 <% provide :title, t(".title") %>
 
 <div class="col-<%= default_grid_system %>-4 pull-right">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-		  <h3><%= t ".title" %></h3>
-		  <hr>
+	<div class="card">
+    <div class="card-header">
+      <%= t ".title" %>
+    </div>
+	  <div class="card-block">
 			<%= form_for([:dashboard, @user], url: signup_users_path, html: { class: "form" }) do |f| %>
 				<div class="form-group">
 					<%= f.text_field :first_name, class: "form-control", placeholder: true %>
@@ -28,21 +29,23 @@
 				</div>
 				<div class="form-group">
 					<%= f.label :birth_date %><br>
-					<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "form-control date-select selectpicker" %>
+					<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "c-select" %>
 					<%= error_messages @user, :birth_date %>
 				</div>
-				<label class="radio-inline">
-					<%= f.radio_button :gender, :male %>
-					<%= User.human_attribute_name("gender.male") %>
-				</label>
-				<label class="radio-inline">
-					<%= f.radio_button :gender, :female %>
-					<%= User.human_attribute_name("gender.female") %>
-				</label>
+        <label class="c-input c-radio">
+          <%= f.radio_button :gender, :male %>
+          <span class="c-indicator"></span>
+          <%= User.human_attribute_name("gender.male") %>
+        </label>
+        <label class="c-input c-radio">
+          <%= f.radio_button :gender, :female %>
+          <span class="c-indicator"></span>
+          <%= User.human_attribute_name("gender.female") %>
+        </label>
 				<br>
 				<%= error_messages @user, :gender %>
 				<br>
-				<%= f.submit t(".submit"), class: "btn btn-primary" %>
+				<%= f.submit t(".submit"), class: "btn btn-primary-outline" %>
 		  <% end %>
 		</div>
 	</div>
