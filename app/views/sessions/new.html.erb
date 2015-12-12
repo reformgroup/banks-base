@@ -2,10 +2,11 @@
 
 
 <div class="col-<%= default_grid_system %>-4 pull-right">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-		  <h3><%= t(".title") %></h3>
-		  <hr>
+	<div class="card">
+    <div class="card-header">
+      <%= t ".title" %>
+    </div>
+	  <div class="card-block">
 			<%= form_for(:session, url: sessions_path, html: { class: "form" }) do |f| %>
 				<div class="form-group">
 					<%= f.text_field :email, class: "form-control", placeholder: User.human_attribute_name(:email) %>
@@ -19,8 +20,9 @@
 						<span><%= User.human_attribute_name(:remember_me) %></span>
 					<% end %>
 				</div>
+        <br>
 				<%= f.submit t(".submit"), class: "btn btn-primary" %>
-				<%= link_to t(".forgot_password"), "#" %>
+				<%= link_to t(".forgot_password"), "#", class: "pull-right" %>
       <% end %>
 		</div>
 	</div>

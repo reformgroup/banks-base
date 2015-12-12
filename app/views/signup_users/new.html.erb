@@ -8,7 +8,7 @@
 	  <div class="card-block">
 			<%= form_for([:dashboard, @user], url: signup_users_path, html: { class: "form" }) do |f| %>
 				<div class="form-group">
-					<%= f.text_field :first_name, class: "form-control", placeholder: true %>
+					<%= f.text_field :first_name, class: "form-control", error_html: { class: "has-danger" }, placeholder: true %>
 					<%= error_messages @user, :first_name %>
 				</div>
 				<div class="form-group">
@@ -45,7 +45,7 @@
 				<br>
 				<%= error_messages @user, :gender %>
 				<br>
-				<%= f.submit t(".submit"), class: "btn btn-primary-outline" %>
+				<%= f.submit t(".submit"), class: "btn btn-primary" %>
 		  <% end %>
 		</div>
 	</div>

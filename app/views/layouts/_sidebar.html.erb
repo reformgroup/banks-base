@@ -1,11 +1,9 @@
 <div class="col-<%= default_grid_system %>-2 sidebar">
-	<div class="sidebar-header">
-		<h4><%= t ".title" %></h4>
-	</div>
-	<ul class="nav-sidebar">
+  <%= t ".title" %>
+  <ul class="nav">
 	  <%= sidebar_item(t(".profile"), my_profile_path(current_user), :user, active_controllers: ["my_profile"]) %>
 	  <%= sidebar_item(t(".users"), dashboard_users_path, :users, available_for_roles: ["admin"], active_controllers: ["users"]) %>
-	</ul>
+  </ul>
 </div>
 
 

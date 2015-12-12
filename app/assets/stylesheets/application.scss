@@ -22,33 +22,56 @@
 	box-sizing: border-box;
 }
 
-a, a:hover, a:focus,
-abbr, address,
-h1, h2, h3, h4, h5, h6,
-mark,
-del,
-s,
-ins,
-u,
-small,
-em,
-p,
-span,
-div,
-ul > li > a,
-.btn,
-.lead,
-.nav.navbar-nav,
-.table th {
-  font-weight: 300;
+// Avatar images
+
+img.avatar.avatar-original, div.avatar.avatar-original {
+	width: 122px;
+	height: 122px;
 }
 
-label,
-span.label,
-b {
-  font-weight: normal;
+img.avatar.avatar-medium, div.avatar.avatar-medium {
+	width: 52px;
+	height: 52px;
 }
 
+img.avatar.avatar-thumb, div.avatar.avatar-thumb {
+	width: 42px;
+	height: 42px;
+}
+
+.navbar-nav a.avatar {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+table td.avatar {
+	width: 50px;
+}
+
+// Navbar
+
+.navbar-main {
+  border-bottom: $border-width solid $navbar-main-border-color;
+}
+
+// Footer
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+.footer-dark {
+  background-color: $gray-dark;
+}
+
+// Colors
+
+.bg-white {
+  background-color: #FFF;
+}
 
 // Universal
 
@@ -60,21 +83,7 @@ html {
 
 body {
 	padding-top: 70px; /* Margin top by navbar height */
-}
-
-// Footer
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: $inverse;
-}
-
-.footer-dark {
-  hr {
-    border-color: $footer-dark-color;
-  }
+  background-color: $gray-lightest;
 }
 
 // Miscellaneous

@@ -36,5 +36,10 @@ module BanksBase
       g.test_framework :rspec, fixtures: true, views: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+    
+    # Disables wrapping in div when field with error
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+      html_tag
+    }
   end
 end

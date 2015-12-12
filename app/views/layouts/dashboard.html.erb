@@ -9,11 +9,10 @@
 </head>
 <body>
   <%= render 'layouts/base_header' %>
-  <%= render 'layouts/sidebar' %>
-  <div class="container-fluid sidebar-content">
+  <div class="container">
     <div class="row">
-      
-      <div class="col-<%= default_grid_system %>-12">
+      <%= render 'layouts/sidebar' %>
+      <div class="col-<%= default_grid_system %>-10">
         <div class="row">
           <div class="col-<%= default_grid_system %>-12">
             <%= render 'layouts/flash' %>
@@ -24,17 +23,24 @@
             </div>
           </div><!-- /.col -->
           <div class="col-<%= default_grid_system %>-12">
-            <div class="panel panel-default">
-              <div class="panel-heading"><h4><%= t ".#{controller_name}.#{action_name}_title" %></h4></div>
-              <div class="panel-body">
+            <div class="card">
+              <div class="card-header">
+                <%= t ".#{controller_name}.#{action_name}_title" %>
+              </div>
+              <div class="card-block">
                 <%= yield %>
-              </div><!-- /.panel-body -->
-            </div><!-- /.panel -->
+              </div><!-- /.card-block -->
+            </div><!-- /.card -->
           </div><!-- /.col -->
         </div><!-- /.row -->
         <%= render 'layouts/debug' %>
       </div><!-- /.col -->
-    </div><!-- /.row -->
+    </div>
   </div>
+  <footer id="footer" class="footer footer-dark">
+    <div class="container">
+      <%= render 'layouts/debug' %>
+    </div>
+  </footer>
 </body>
 </html>
