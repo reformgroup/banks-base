@@ -29,7 +29,7 @@
 				</div>
 				<div class="form-group">
 					<%= f.label :birth_date %><br>
-					<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "c-select" %>
+					<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "form-control c-select date-select" %>
 					<%= error_messages @user, :birth_date %>
 				</div>
         <label class="c-input c-radio">

@@ -11,8 +11,11 @@
  * file per style scope.
  *
  */
+@import "import";
 @import "bootstrap";
 @import "variables";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // Mixins, variables, etc.
 
@@ -24,34 +27,49 @@
 
 // Avatar images
 
+img.avatar, div.avatar {
+	background-size: cover;
+	background-position: center;
+	border: 1px solid $gray-lighter;
+}
+
 img.avatar.avatar-original, div.avatar.avatar-original {
-	width: 122px;
-	height: 122px;
+	width: 7.625rem; // 120px + 1px border * 2
+	height: 7.625rem; // 120px + 1px border * 2
 }
 
 img.avatar.avatar-medium, div.avatar.avatar-medium {
-	width: 52px;
-	height: 52px;
+	width: 3.25rem; // 50px + 1px border * 2
+	height: 3.25rem; // 50px + 1px border * 2
 }
 
 img.avatar.avatar-thumb, div.avatar.avatar-thumb {
-	width: 42px;
-	height: 42px;
-}
-
-.navbar-nav a.avatar {
-	padding-top: 4px;
-	padding-bottom: 4px;
+	width: 2.375rem; // 38px + 1px border * 2
+	height: 2.375rem; // 38px + 1px border * 2
 }
 
 table td.avatar {
-	width: 50px;
+	width: 3.125rem; // 50px
 }
 
 // Navbar
 
 .navbar-main {
   border-bottom: $border-width solid $navbar-main-border-color;
+  .nav-user > .nav-link {
+    padding: 0rem;
+  }
+}
+
+// Sidebar
+
+.sidebar {
+  .sidebar-title {
+    padding-bottom: 0.75rem; // 12px
+  }
+  .sidebar-item {
+    padding: 0.25rem 0rem 0.25rem 0rem; // 4px
+  }
 }
 
 // Footer
@@ -59,8 +77,7 @@ table td.avatar {
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  
+  width: 100%; 
 }
 
 .footer-dark {
@@ -71,6 +88,20 @@ table td.avatar {
 
 .bg-white {
   background-color: #FFF;
+}
+
+// Typography
+
+html {
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+.btn {
+  font-weight: 300;
 }
 
 // Universal
@@ -86,13 +117,62 @@ body {
   background-color: $gray-lightest;
 }
 
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+// Dropdown
+
+.custom-carets .dropdown-toggle:after {
+  font-family: FontAwesome;
+  content: "\f107";
+}
+
+.custom-carets .dropdown-toggle > span.caret {
+  display: none;
+}
+
+// Forms
+
+select.date-select {
+	display: inline-block;
+	width: auto;
+}
+
+// File upload
+
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-file input[type   = file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
+
 // Miscellaneous
 
 .debug_dump {
 	clear: both;
 	float: left;
 	width: 100%;
-	margin-top: 15px;
+	margin-top: 0.9375rem; // 15px
   @include box_sizing;
   color: $footer-dark-color;
 }

@@ -3,38 +3,29 @@
 <% provide :main_content_filter,  %>
 
 <div class="row">
-
   <div class="col-<%= default_grid_system %>-6">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-secondary" type="button">Go!</button>
       </span>
-    </div><!-- /input-group -->
-
-  </div><!-- /.col-lg-6 -->
+    </div><!-- /.input-group -->
+  </div><!-- /.col -->
   <div class="col-<%= default_grid_system %>-6">
     <div class="pull-right">
-      <%= link_to icon(:plus, t(".add_user_link")), new_dashboard_user_path, class: "btn btn-default" %>
+      <%= link_to icon(:plus, t(".add_user_link")), new_dashboard_user_path, class: "btn btn-secondary" %>
     </div>
-  </div><!-- /.col-lg-6 -->
-</div>
-<br>
-<br>
+  </div><!-- /.col -->
+</div><!-- /.row -->
+</div><!-- /.card-block -->
+<div class="card-block">
 <div class="row">
-
-  <table class="table table-striped full-width">
-    <thead>
-      <tr class="text-muted">
-        <th><%= User.model_name.human %> <%= link_to icon :sort, class:"text-muted" %></th>
-        <th><%= User.human_attribute_name "email" %> <%= link_to icon :sort, class:"text-muted" %></th>
-        <th><%= User.human_attribute_name "role" %> <%= link_to icon :sort, class:"text-muted" %></th>
-        <th><%= t "timestamp.created_at" %> <%= link_to icon :sort, class:"text-muted" %></th>
-      </tr>
-    </thead>
-    <% @users.each do |user| %>
-      <%= render "shared/users/user_item", user: user %>
-    <% end %>
+  <table class="table">
+    <tbody>
+      <% @users.each do |user| %>
+        <%= render "shared/users/user_item", user: user %>
+      <% end %>
+    </tbody>
   </table>
 
   <div class="col-<%= default_grid_system %>-12">
@@ -42,7 +33,7 @@
       <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
       <div class="pagination-info text-muted">
         <small><%= page_entries_info @users, model: User, html: false %></small>
-      </div>
-    </div>
-  </div>
-</div>
+      </div><!-- /.pagination-info -->
+    </div><!-- /.pagination-block -->
+  </div><!-- /.col -->
+</div><!-- /.row -->

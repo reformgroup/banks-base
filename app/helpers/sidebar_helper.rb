@@ -9,7 +9,7 @@ module SidebarHelper
         options[:class] << " active"
         @@active        = true
       end
-      content_tag(:li, class: "nav-item") do
+      content_tag(:li, class: "nav-item sidebar-item") do
         link_text = icon icon_name, link_text, class: "fa-fw" if icon_name
         link_to(link_path, options.slice(:class)) { link_text }
       end

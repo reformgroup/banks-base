@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt',                 '~> 3.1.10'
-gem 'bootstrap',              '~> 4.0.0.alpha1'
+gem 'bootstrap',              '~> 4.0.0.alpha3'
 gem 'bootstrap-will_paginate'
 gem 'coffee-rails',           '~> 4.1.0'
 gem 'font-awesome-sass'

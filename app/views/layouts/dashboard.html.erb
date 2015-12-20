@@ -18,25 +18,19 @@
             <%= render 'layouts/flash' %>
           </div><!-- /.col -->
           <div class="col-<%= default_grid_system %>-12">
-            <div class="content-header">
-              <h4 class="text-muted"><%= t ".#{controller_name}.main_title" %></h4>
-            </div>
-          </div><!-- /.col -->
-          <div class="col-<%= default_grid_system %>-12">
             <div class="card">
-              <div class="card-header">
-                <%= t ".#{controller_name}.#{action_name}_title" %>
-              </div>
+              <div class="card-block">
+                <h5 class="card-title"><%= t ".#{controller_name}.#{action_name}_title" %></h5>
+              </div><!-- /.card-block -->
               <div class="card-block">
                 <%= yield %>
               </div><!-- /.card-block -->
             </div><!-- /.card -->
           </div><!-- /.col -->
         </div><!-- /.row -->
-        <%= render 'layouts/debug' %>
       </div><!-- /.col -->
-    </div>
-  </div>
+    </div><!-- /.row -->
+  </div><!-- /.container -->
   <footer id="footer" class="footer footer-dark">
     <div class="container">
       <%= render 'layouts/debug' %>

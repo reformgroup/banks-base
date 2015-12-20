@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_attached_file :avatar, 
     { 
-      styles: { original: "120x120#", medium: "50x50#", thumb: "40x40#" }, 
+      styles: { original: "120x120#", medium: "50x50#", thumb: "38x38#" }, 
       default_url: "/images/:class/:attachment/:style/missing.png",
       url: "#{AVATAR_PATH}/:hash.:extension",
       path: ":rails_root/public#{AVATAR_PATH}/:hash.:extension",
