@@ -10,7 +10,7 @@ gem 'jbuilder',               '~> 2.3'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'paperclip',              '~> 4.3'
-gem 'rails',                  '4.2.0'
+gem 'rails',                  '~> 4.2', '>= 4.2.5'
 gem 'sass-rails',             '~> 5.0'
 gem 'sdoc',                   '~> 0.4.1', group: :doc
 gem 'sqlite3'
@@ -19,7 +19,6 @@ gem 'turbolinks'
 gem 'uglifier',               '~> 2.7'
 gem 'validates_timeliness',   '~> 3.0.14'
 gem 'will_paginate'
-gem 'userstamp', :git => 'https://github.com/stricte/userstamp.git', :branch => 'rails4'
 gem 'gretel'
 
 group :development, :test do

@@ -57,11 +57,11 @@ ru:
       logout: "Выйти"
       profile: "Мой профиль"
       dashboard: "Панель управления"
-    sidebar:
+    sidebar_menu:
       title: "Панель управления"
       profile: "Мой профиль"
       users: "Пользователи"
-    dashboard:
+    sidebar:
       users:
         main_title: "Пользователи"
         index_title: "Список пользователей"

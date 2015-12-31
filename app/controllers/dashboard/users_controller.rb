@@ -3,7 +3,7 @@ class Dashboard::UsersController < ApplicationController
   before_action :logged_in_user
   before_action :correct_role
   
-  layout "dashboard"
+  layout "sidebar"
   
   def index
     @filter_options = [["#{User.human_attribute_name "last_name"} (#{t('filter.string_asc')})", "last_name_asc"], 
@@ -64,7 +64,7 @@ class Dashboard::UsersController < ApplicationController
       redirect_to dashboard_users_path
     end
   end
-
+  
   private
 
   # All params

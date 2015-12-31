@@ -12,7 +12,7 @@
     </div>
     <div class="row">
       <div class="col-<%= default_grid_system %>-6">
-        <span class="text-muted"><%= User.human_attribute_name "email" %>:</span><br><%= @user.email %><br><br>
+        <span class="text-muted"><%= User.human_attribute_name "email" %>:</span><br><%= mail_to @user.email, nil, subject: banks_base_name %><br><br>
         <span class="text-muted"><%= User.human_attribute_name "birth_date" %>:</span><br><%= l @user.birth_date %> (<%= @user.age %>)<br><br>
         <span class="text-muted"><%= User.human_attribute_name "gender" %>:</span><br><%= User.human_attribute_name "gender.#{@user.gender}" %><br><br>
         <small class="text-muted"><%= t "timestamp.created_at" %>: <%= time_ago_tag(@user.created_at) %></small>

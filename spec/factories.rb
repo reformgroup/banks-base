@@ -16,6 +16,10 @@ FactoryGirl.define do
       role "admin"
     end
     
+    factory :superadmin do
+      role "superadmin"
+    end
+    
     factory :bank_user do
       role "bank_user"
     end
@@ -28,7 +32,7 @@ FactoryGirl.define do
       gender "male"
       password "123123"
       password_confirmation "123123"
-      role "admin"
+      role "superadmin"
       avatar { process_uri(Faker::Avatar.image) }
     end
   end

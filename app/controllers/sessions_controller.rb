@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       case current_role
       when "superadmin", "admin" then redirect_to dashboard_users_path
-      when "user" then redirect_to my_profile(user)
+      when "user" then redirect_to my_profile_path(user)
       end
       # redirect_back_or user
     else

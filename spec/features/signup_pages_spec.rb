@@ -65,7 +65,7 @@ RSpec.describe "signup pages", :type => :features do
     
     let(:user) { create_login_user }
     
-    before { visit user_path(user) }
+    before { visit dashboard_user_path(user) }
     
     it { should have_title(full_title(user.short_name)) }
     it { should have_content(user.full_name) }

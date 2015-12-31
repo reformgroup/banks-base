@@ -48,7 +48,7 @@ img.avatar.avatar-thumb, div.avatar.avatar-thumb {
 	height: 2.375rem; // 38px + 1px border * 2
 }
 
-table td.avatar {
+.table td.avatar {
 	width: 3.125rem; // 50px
 }
 
@@ -127,14 +127,14 @@ body {
 
 // Dropdown
 
-.custom-carets .dropdown-toggle:after {
-  font-family: FontAwesome;
-  content: "\f107";
-}
+//.custom-carets .dropdown-toggle:after {
+//  font-family: FontAwesome;
+//  content: "\f107";
+//}
 
-.custom-carets .dropdown-toggle > span.caret {
-  display: none;
-}
+//.custom-carets .dropdown-toggle > span.caret {
+//  display: none;
+//}
 
 // Forms
 
@@ -150,13 +150,12 @@ select.date-select {
 	overflow: hidden;
 }
 
-.btn-file input[type   = file] {
+.btn-file input[type = file] {
 	position: absolute;
 	top: 0;
 	right: 0;
 	min-width: 100%;
 	min-height: 100%;
-	font-size: 100px;
 	text-align: right;
 	filter: alpha(opacity = 0);
 	opacity: 0;
@@ -175,4 +174,11 @@ select.date-select {
 	margin-top: 0.9375rem; // 15px
   @include box_sizing;
   color: $footer-dark-color;
+}
+
+// Tables
+//
+// Vertical align
+.table.v-align tbody > tr > td {
+  vertical-align: middle;
 }

@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20150407075946) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   add_index "bank_users", ["bank_id"], name: "index_bank_users_on_bank_id"
@@ -29,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150407075946) do
     t.string   "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   add_index "banks", ["name", "website"], name: "index_banks_on_name_and_website"
@@ -49,6 +53,8 @@ ActiveRecord::Schema.define(version: 20150407075946) do
     t.datetime "avatar_updated_at"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

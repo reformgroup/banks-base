@@ -26,15 +26,18 @@ class User < ActiveRecord::Base
   #
   #  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.safe_email, birth_date: 18.years.ago - Faker::Number.number(3).to_i.days, gender: [:male, :female, :other].sample, password: "foobar", password_confirmation: "foobar", role: "user", avatar: helper.process_uri(Faker::Avatar.image))
   #
-
+  
   include Searchable
   include Filterable
+  include Userstampable
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
   AVATAR_PATH       = "/system/:class/:attachment/:id_partition/:style"
   
   attr_accessor :remember_token
+  
+  userstampable
   
   has_many :bank_users
   has_many :banks, through: :bank_users

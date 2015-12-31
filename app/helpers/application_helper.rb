@@ -1,6 +1,7 @@
 module ApplicationHelper
   
   LOCALE_LIST = { en: "English", ru: "Русский" }
+  BANKS_BASE_NAME = "Banks Base"
   
   def current_locale_name
     LOCALE_LIST[I18n.locale]
@@ -10,9 +11,14 @@ module ApplicationHelper
     LOCALE_LIST
   end
   
+  # Returns the company name.
+  def banks_base_name
+    BANKS_BASE_NAME
+  end
+  
   # Returns the full title on a per-page basis.
   def full_title(page_title)
-    base_title = "Banks base"
+    base_title = banks_base_name
     if page_title.empty?
       base_title
     else
@@ -29,7 +35,7 @@ module ApplicationHelper
 
   # Return HTML code with 
   def time_ago_tag(from_time, options = {})
-    content_tag(:span, "#{time_ago_in_words(from_time)} #{t('ago')}", "data-toggle": "tooltip", "data-placement": "bottom", title: l(from_time, format: :long)) if from_time
+    content_tag(:span, "#{time_ago_in_words(from_time)} #{t('ago')}", "data-toggle": "tooltip", "data-placement": "top", title: l(from_time, format: :long)) if from_time
   end
   
   def not_found

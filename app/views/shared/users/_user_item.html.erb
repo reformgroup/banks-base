@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= image_tag user.avatar.url(:thumb), class: "img-circle avatar avatar-thumb" %>
+    <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
     <%= link_to user.full_name, dashboard_user_path(user) %>
   </td>
   <td>
@@ -10,6 +10,6 @@
     <%= user.role %>
   </td>
   <td>
-    <%= time_ago_tag(user.created_at) %>
+    <%= time_ago_tag user.created_at %>
   </td>
 </tr>
