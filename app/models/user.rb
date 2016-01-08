@@ -29,15 +29,12 @@ class User < ActiveRecord::Base
   
   include Searchable
   include Filterable
-  include Userstampable
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
   AVATAR_PATH       = "/system/:class/:attachment/:id_partition/:style"
   
   attr_accessor :remember_token
-  
-  userstampable
   
   has_many :bank_users
   has_many :banks, through: :bank_users

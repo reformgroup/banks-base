@@ -1,3 +1,5 @@
+require 'active_support/concern'
+
 module Filterable
   
   extend ActiveSupport::Concern

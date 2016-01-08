@@ -13,7 +13,6 @@ class CreateUsers < ActiveRecord::Migration
       t.attachment :avatar
       
       t.timestamps null: false
-      t.userstamps
     end
     
     add_index :users, [:email]

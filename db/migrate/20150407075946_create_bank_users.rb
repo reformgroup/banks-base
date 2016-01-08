@@ -5,7 +5,6 @@ class CreateBankUsers < ActiveRecord::Migration
       t.references :user, index: true
 
       t.timestamps null: false
-      t.userstamps
     end
     add_foreign_key :bank_users, :banks
     add_foreign_key :bank_users, :users

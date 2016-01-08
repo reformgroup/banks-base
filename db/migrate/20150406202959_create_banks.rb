@@ -6,7 +6,6 @@ class CreateBanks < ActiveRecord::Migration
       t.string :website, unique: true
       
       t.timestamps null: false
-      t.userstamps
     end
     
     add_index :banks, [:name, :website]
