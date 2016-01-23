@@ -1,6 +1,6 @@
 <% provide :title, t(".title") %>
 <% provide :main_content_title, t(".title") %>
-<% provide :main_content_filter,  %>
+<% provide :main_content_filter  %>
 
 <div class="row">
   <div class="col-<%= default_grid_system %>-6">
@@ -13,7 +13,7 @@
   </div><!-- /.col -->
   <div class="col-<%= default_grid_system %>-6">
     <div class="pull-right">
-      <%= link_to icon(:plus, t(".add_user_link")), new_dashboard_user_path, class: "btn btn-secondary" %>
+      <%= link_to icon(:plus, t(".add_user_link")), new_settings_user_path, class: "btn btn-secondary" %>
     </div>
   </div><!-- /.col -->
 </div><!-- /.row -->
@@ -30,6 +30,7 @@
 
   <div class="col-<%= default_grid_system %>-12">
     <div class="pagination-block">
+      
       <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
       <div class="pagination-info text-muted">
         <small><%= page_entries_info @users, model: User, html: false %></small>

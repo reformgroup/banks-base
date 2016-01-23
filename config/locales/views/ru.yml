@@ -56,9 +56,9 @@ ru:
       login: "Войти"
       logout: "Выйти"
       profile: "Мой профиль"
-      dashboard: "Панель управления"
+      settings: "Настройки"
     sidebar_menu:
-      title: "Панель управления"
+      title: "Настройки"
       profile: "Мой профиль"
       users: "Пользователи"
     sidebar:
@@ -80,7 +80,7 @@ ru:
     banks:
       title: "Банкам"
       signup_button: "Зарегистрировать"
-  dashboard:
+  settings:
     users:
       index:
         title: "Список пользователей"

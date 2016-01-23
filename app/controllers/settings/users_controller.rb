@@ -1,4 +1,4 @@
-class Dashboard::UsersController < ApplicationController
+class Settings::UsersController < ApplicationController
   
   before_action :logged_in_user
   before_action :correct_role
@@ -41,7 +41,7 @@ class Dashboard::UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t ".flash.success.message"
-      redirect_to [:dashboard, @user]
+      redirect_to [:￿, @user]
     else
       render "new"
     end
@@ -51,7 +51,7 @@ class Dashboard::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
       flash[:success] = t ".flash.success.message"
-      redirect_to [:dashboard, @user]
+      redirect_to [:￿, @user]
     else
       render "edit"
     end
@@ -61,7 +61,7 @@ class Dashboard::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.destroy
       flash[:success] = t ".flash.success.message"
-      redirect_to dashboard_users_path
+      redirect_to ￿_users_path
     end
   end
   

@@ -1,5 +1,5 @@
 <% provide :title, @user.short_name %>
 
-<%= form_for([:dashboard, @user]) do |f| %>
+<%= form_for([:settings, @user]) do |f| %>
   <%= render "user", f: f %>
 <% end %>

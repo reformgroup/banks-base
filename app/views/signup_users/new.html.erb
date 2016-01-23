@@ -6,7 +6,7 @@
       <%= t ".title" %>
     </div>
 	  <div class="card-block">
-			<%= form_for([:dashboard, @user], url: signup_users_path, html: { class: "form" }) do |f| %>
+			<%= form_for([:settings, @user], url: signup_users_path, html: { class: "form" }) do |f| %>
 				<div class="form-group">
 					<%= f.text_field :first_name, class: "form-control", error_html: { class: "has-danger" }, placeholder: true %>
 					<%= error_messages @user, :first_name %>

@@ -1,15 +1,20 @@
 <tr>
   <td>
-    <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
-    <%= link_to user.full_name, dashboard_user_path(user) %>
-  </td>
-  <td>
-    <%= user.email %>
-  </td>
-  <td>
-    <%= user.role %>
-  </td>
-  <td>
-    <%= time_ago_tag user.created_at %>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
+        <%= link_to user.full_name, settings_user_path(user) %>
+      </div>
+      <div class="col-xs-6">
+        <%= user.email %>
+      </div>
+
+      <div class="col-xs-2 hidden-md-down">
+        <%= user.role %>
+      </div>
+      <div class="col-xs-2 hidden-md-down small text-muted">
+        <%= time_ago_tag user.created_at %>
+      </div>
+    </div>
   </td>
 </tr>

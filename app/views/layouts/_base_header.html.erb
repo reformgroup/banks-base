@@ -9,7 +9,6 @@
       <%= nav_link_to t(".company"), company_path %>
     </ul>
 		<ul class="nav navbar-nav pull-right">
-			
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <%= current_locale_name %>
@@ -20,7 +19,7 @@
 					<% end %>
         </div>
       </li>
-	
+	    
 			<% if logged_in? %>
 				<li class="nav-item nav-user dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -28,7 +27,7 @@
             <span><%= "#{current_user.first_name} #{current_user.last_name}" %></span>
           </a>
 					<div class="dropdown-menu" aria-labelledby="user-menu">
-            <%= link_to icon("wrench", t(".dashboard"), class: "fa-fw text-muted"), dashboard_root_path, class: "dropdown-item" %>
+            <%= link_to icon("wrench", t(".settings"), class: "fa-fw text-muted"), settings_root_path, class: "dropdown-item" %>
 						<div class="dropdown-divider"></div>
 						<%= link_to icon("sign-out", t(".logout"), class: "fa-fw text-muted"), logout_path, method: "delete", class: "dropdown-item" %>
 					</div>
@@ -38,7 +37,7 @@
           <li class="nav-item"><%= link_to t(".signup"), signup_path, class: "nav-link" %></li>
         <% end %>
         <li class="nav-item"><%= link_to t(".login"), login_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t(".bank"), bank_path, class: "btn btn-danger-outline", role: "button" %></li>
+        <li class="nav-item"><%= link_to t(".bank"), bank_path, class: "btn btn-primary-outline", role: "button" %></li>
 			<% end %>
 		</ul>
   </div><!--/.nav-collapse -->

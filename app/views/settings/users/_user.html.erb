@@ -19,7 +19,7 @@
         </button>
         <%= render partial: "shared/modals/modal", locals: {  title: t(".confirm.delete.title"),
         body: t(".confirm.delete.body"),
-        ok_link: link_to(t("buttons.delete"), dashboard_user_path(@user), method: :delete, class: "btn btn-danger"),
+        ok_link: link_to(t("buttons.delete"), settings_user_path(@user), method: :delete, class: "btn btn-danger"),
         cancel_link_text: t("buttons.cancel") } %>
       <% end %>
       <button class="btn btn-primary" type="submit"><%= icon "floppy-o", t("buttons.save") %></button>

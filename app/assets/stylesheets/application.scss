@@ -176,6 +176,21 @@ select.date-select {
   color: $footer-dark-color;
 }
 
+// Pagination
+
+.pagination-block {
+	text-align: center;
+	div.pagination {
+		margin-bottom: 0px;
+	}
+	ul.pagination {
+		margin-bottom: 10px;
+	}
+	.pagination-info {
+		margin-bottom: 20px;
+	}
+}
+
 // Tables
 //
 // Vertical align

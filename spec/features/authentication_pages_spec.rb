@@ -44,7 +44,7 @@ RSpec.describe "authentication pages", type: :features do
       end
 
       it { should have_title(user.short_name) }
-      it { should have_link('Панель управления', href: user_path(user, locale: I18n.locale)) }
+      it { should have_link('Настройки', href: user_path(user, locale: I18n.locale)) }
       it { should have_link('Выйти', href: logout_path(locale: I18n.locale)) }
     end
   end
