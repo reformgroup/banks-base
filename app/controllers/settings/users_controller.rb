@@ -1,9 +1,9 @@
-class Dashboard::UsersController < ApplicationController
+class Settings::UsersController < ApplicationController
   
   before_action :logged_in_user
   before_action :correct_role
   
-  layout "dashboard"
+  layout "sidebar"
   
   def index
     @filter_options = [["#{User.human_attribute_name "last_name"} (#{t('filter.string_asc')})", "last_name_asc"], 
@@ -41,7 +41,7 @@ class Dashboard::UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t ".flash.success.message"
-      redirect_to @user
+      redirect_to [:settings, @user]
     else
       render "new"
     end
@@ -51,7 +51,7 @@ class Dashboard::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
       flash[:success] = t ".flash.success.message"
-      redirect_to @user
+      redirect_to [:settings, @user]
     else
       render "edit"
     end
@@ -61,10 +61,10 @@ class Dashboard::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.destroy
       flash[:success] = t ".flash.success.message"
-      redirect_to dashboard_users_path
+      redirect_to settings_users_path
     end
   end
-
+  
   private
 
   # All params

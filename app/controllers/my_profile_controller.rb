@@ -3,7 +3,7 @@ class MyProfileController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user
   
-  layout "dashboard"
+  layout "settings"
   
   def show
     @user = User.find params[:id]

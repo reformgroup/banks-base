@@ -56,12 +56,12 @@ ru:
       login: "Войти"
       logout: "Выйти"
       profile: "Мой профиль"
-      dashboard: "Панель управления"
-    sidebar:
-      title: "Панель управления"
+      settings: "Настройки"
+    sidebar_menu:
+      title: "Настройки"
       profile: "Мой профиль"
       users: "Пользователи"
-    dashboard:
+    sidebar:
       users:
         main_title: "Пользователи"
         index_title: "Список пользователей"
@@ -80,7 +80,7 @@ ru:
     banks:
       title: "Банкам"
       signup_button: "Зарегистрировать"
-  dashboard:
+  settings:
     users:
       index:
         title: "Список пользователей"
@@ -108,6 +108,10 @@ ru:
               После удаления восстановить пользователя невозможно.
         password_note: > 
           Пароль для нового пользователя будет создан автоматически и направлен на указанный адрес электронной почты
+  signup_users:
+    new:
+      title: "Регистрация"
+      submit: "Зарегистрироваться"
   banks:
     signup:
       title: "Регистрация"

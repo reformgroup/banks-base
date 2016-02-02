@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     resources :my_profile, only: [:show, :edit, :update, :destroy]
     
-    namespace :dashboard do
+    namespace :settings do
       resources :users
       resources :banks
     end

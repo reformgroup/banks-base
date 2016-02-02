@@ -4,7 +4,7 @@ ru:
       flash:
         danger:
           message: "Для начала нужно зайти в свою учётную запись или зарегистрироваться."
-  dashboard:
+  settings:
     users:
       create:
         flash:

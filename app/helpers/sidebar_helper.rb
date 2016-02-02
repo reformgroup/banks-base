@@ -1,15 +1,15 @@
 module SidebarHelper
   
   def sidebar_item(link_text, link_path, icon_name, options = {})
-    options ||= {}
+    options[:class] = "nav-link text-muted"
     
     if available?(options)
       @@available = true
       if active?(options)
-        options[:class] = "active"
+        options[:class] << " active"
         @@active        = true
       end
-      content_tag(:li) do
+      content_tag(:li, class: "nav-item sidebar-item") do
         link_text = icon icon_name, link_text, class: "fa-fw" if icon_name
         link_to(link_path, options.slice(:class)) { link_text }
       end

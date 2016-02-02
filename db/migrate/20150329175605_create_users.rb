@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name, null: false
       t.string :first_name, null: false
       t.string :middle_name
-      t.string :email, null: false, unique: true
+      t.string :email, index: true, null: false, unique: true
       t.integer :gender, null: false
       t.date :birth_date, null: false
       t.string :password_digest, null: false
@@ -12,9 +12,8 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :role, null: false
       t.attachment :avatar
       
-      t.timestamps null: false
+      t.timestamps null: false, include_deleted_at: true
+      t.userstamps index: true, include_deleter_id: true
     end
-    
-    add_index :users, [:email]
   end
 end

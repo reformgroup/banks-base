@@ -24,11 +24,13 @@ class User < ActiveRecord::Base
 
   # Create users
   #
-  #  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.safe_email, birth_date: 18.years.ago - Faker::Number.number(3).to_i.days, gender: [:male, :female, :other].sample, password: "foobar", password_confirmation: "foobar", role: "user", avatar: helper.process_uri(Faker::Avatar.image))
+  #  25.times { User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.safe_email, birth_date: 18.years.ago - Faker::Number.number(3).to_i.days, gender: [:male, :female, :other].sample, password: "foobar", password_confirmation: "foobar", role: "user", avatar: helper.process_uri(Faker::Avatar.image)) }
   #
-
+  
   include Searchable
   include Filterable
+  include Userstampable::Stampable
+  include Userstampable::Stamper
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
@@ -41,7 +43,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_attached_file :avatar, 
     { 
-      styles: { original: "120x120#", medium: "50x50#", thumb: "40x40#" }, 
+      styles: { original: "120x120#", medium: "50x50#", thumb: "38x38#" }, 
       default_url: "/images/:class/:attachment/:style/missing.png",
       url: "#{AVATAR_PATH}/:hash.:extension",
       path: ":rails_root/public#{AVATAR_PATH}/:hash.:extension",
@@ -63,7 +65,7 @@ class User < ActiveRecord::Base
   before_save { email.downcase! }
   before_save :set_name
   after_initialize :set_default_role, if: :new_record?
-    
+  
   enum gender: [:male, :female, :other]
   enum role: [:admin, :bank_user, :user]
   
@@ -157,9 +159,13 @@ class User < ActiveRecord::Base
   end
 
   def normalize_name(name)
-    name.gsub!(/^[ -]*|[ -]*$/, "")
-    name.gsub!(/[ ]*[-]{2,}[ ]*/, "-")
-    name.gsub!(/[ ]{2,}/, " ")
-    name.gsub!(/[[:alpha:]]+/i) { |s| s.capitalize }
+    if name.blank?
+      nil
+    else
+      name.gsub!(/^[ -]*|[ -]*$/, "")
+      name.gsub!(/[ ]*[-]{2,}[ ]*/, "-")
+      name.gsub!(/[ ]{2,}/, " ")
+      name.gsub!(/[[:alpha:]]+/i) { |s| s.capitalize }
+    end
   end
 end 

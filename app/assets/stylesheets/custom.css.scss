@@ -106,18 +106,18 @@ img.avatar, div.avatar {
 }
 
 img.avatar.avatar-original, div.avatar.avatar-original {
-	width: 122px;
-	height: 122px;
+	width: 7.625rem; // 122px
+	height: 7.625rem; // 122px
 }
 
 img.avatar.avatar-medium, div.avatar.avatar-medium {
-	width: 52px;
-	height: 52px;
+	width: 3.25rem; // 52px
+	height: 3.25rem; // 52px
 }
 
 img.avatar.avatar-thumb, div.avatar.avatar-thumb {
-	width: 42px;
-	height: 42px;
+	width: 2.625rem; // 42px
+	height: 2.625rem; // 42px
 }
 
 .navbar-nav a.avatar {

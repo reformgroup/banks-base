@@ -1,6 +1,18 @@
+# == Schema Information
+#
+# Table name: banks
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  short_name :string
+#  website    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class BanksController < ApplicationController
   
-  layout "dashboard", except: :signup
+  layout "settings", except: :signup
   
   def create
     @bank = Bank.new(bank_params)
