@@ -17,7 +17,7 @@
 /tmp
 
 # Ignore all public images.
-/public/images/*
+/public/system/*
 
 # Ignoring other files.
 database.yml
