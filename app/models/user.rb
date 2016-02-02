@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   
   include Searchable
   include Filterable
+  include Userstampable::Stampable
+  include Userstampable::Stamper
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
@@ -63,7 +65,7 @@ class User < ActiveRecord::Base
   before_save { email.downcase! }
   before_save :set_name
   after_initialize :set_default_role, if: :new_record?
-    
+  
   enum gender: [:male, :female, :other]
   enum role: [:admin, :bank_user, :user]
   
@@ -157,9 +159,13 @@ class User < ActiveRecord::Base
   end
 
   def normalize_name(name)
-    name.gsub!(/^[ -]*|[ -]*$/, "")
-    name.gsub!(/[ ]*[-]{2,}[ ]*/, "-")
-    name.gsub!(/[ ]{2,}/, " ")
-    name.gsub!(/[[:alpha:]]+/i) { |s| s.capitalize }
+    if name.blank?
+      nil
+    else
+      name.gsub!(/^[ -]*|[ -]*$/, "")
+      name.gsub!(/[ ]*[-]{2,}[ ]*/, "-")
+      name.gsub!(/[ ]{2,}/, " ")
+      name.gsub!(/[[:alpha:]]+/i) { |s| s.capitalize }
+    end
   end
 end 

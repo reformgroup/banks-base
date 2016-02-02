@@ -41,7 +41,7 @@ class Settings::UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t ".flash.success.message"
-      redirect_to [:￿, @user]
+      redirect_to [:settings, @user]
     else
       render "new"
     end
@@ -51,7 +51,7 @@ class Settings::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
       flash[:success] = t ".flash.success.message"
-      redirect_to [:￿, @user]
+      redirect_to [:settings, @user]
     else
       render "edit"
     end
@@ -61,7 +61,7 @@ class Settings::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.destroy
       flash[:success] = t ".flash.success.message"
-      redirect_to ￿_users_path
+      redirect_to settings_users_path
     end
   end
   

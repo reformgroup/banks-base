@@ -18,9 +18,13 @@ ActiveRecord::Schema.define(version: 20150407075946) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   add_index "bank_users", ["bank_id"], name: "index_bank_users_on_bank_id"
+  add_index "bank_users", ["creator_id"], name: "index_bank_users_on_creator_id"
+  add_index "bank_users", ["updater_id"], name: "index_bank_users_on_updater_id"
   add_index "bank_users", ["user_id"], name: "index_bank_users_on_user_id"
 
   create_table "banks", force: :cascade do |t|
@@ -29,9 +33,14 @@ ActiveRecord::Schema.define(version: 20150407075946) do
     t.string   "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
-  add_index "banks", ["name", "website"], name: "index_banks_on_name_and_website"
+  add_index "banks", ["creator_id"], name: "index_banks_on_creator_id"
+  add_index "banks", ["name"], name: "index_banks_on_name"
+  add_index "banks", ["updater_id"], name: "index_banks_on_updater_id"
+  add_index "banks", ["website"], name: "index_banks_on_website"
 
   create_table "users", force: :cascade do |t|
     t.string   "last_name",           null: false
@@ -49,8 +58,15 @@ ActiveRecord::Schema.define(version: 20150407075946) do
     t.datetime "avatar_updated_at"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.datetime "deleted_at"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.integer  "deleter_id"
   end
 
+  add_index "users", ["creator_id"], name: "index_users_on_creator_id"
+  add_index "users", ["deleter_id"], name: "index_users_on_deleter_id"
   add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["updater_id"], name: "index_users_on_updater_id"
 
 end

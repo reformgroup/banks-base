@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
   
   private
   
+  # Before filters
+  
   def set_locale
     I18n.locale = params[:locale] || current_user.try(:locale) || I18n.default_locale
   end
   
   protected
-  
-  # Before filters
 
   # Confirms a logged-in user.
   def logged_in_user
