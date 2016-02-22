@@ -4,7 +4,7 @@ module Filterable
   
   extend ActiveSupport::Concern
 
-  module ClassMethods
+  class_methods do
     
     # Returns a sorted collection.
     def filter(query, *filter_params)

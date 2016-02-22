@@ -6,22 +6,14 @@ class Settings::UsersController < ApplicationController
   layout "sidebar"
   
   def index
-    @filter_options = [["#{User.human_attribute_name "last_name"} (#{t('filter.string_asc')})", "last_name_asc"], 
-                      ["#{User.human_attribute_name "last_name"} (#{t('filter.string_desc')})", "last_name_desc"], 
-                      ["#{t('timestamp.created_at')} (#{t('filter.date_desc')})", "created_at_desc"], 
-                      ["#{t('timestamp.created_at')} (#{t('filter.date_asc')})", "created_at_asc"]]
+    @sort_options = [["#{User.human_attribute_name "last_name"} (#{t('sort.string_asc')})", "last_name_asc"], 
+                      ["#{User.human_attribute_name "last_name"} (#{t('sort.string_desc')})", "last_name_desc"], 
+                      ["#{t('timestamp.created_at')} (#{t('sort.date_desc')})", "created_at_desc"], 
+                      ["#{t('timestamp.created_at')} (#{t('sort.date_asc')})", "created_at_asc"]]
                       
-    @selected_filter_options = params[:filter] if params[:filter]
+    @selected_sort_options = params[:sort] if params[:sort]
     
-    @users = if params[:search] && params[:filter]
-      User.search(params[:search], :last_name, :first_name, :middle_name, :email).filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
-    elsif params[:search]
-      User.search(params[:search], :last_name, :first_name, :middle_name, :email).paginate(page: params[:page])
-    elsif params[:filter]
-      User.filter(params[:filter], :last_name, :created_at).paginate(page: params[:page])
-    else
-      User.paginate(page: params[:page])
-    end
+    @users = User.sort(params[:sort], params[:direction]).paginate(page: params[:page])
   end
   
   def show

@@ -2,39 +2,54 @@
 <% provide :main_content_title, t(".title") %>
 <% provide :main_content_filter  %>
 
-<div class="row">
-  <div class="col-<%= default_grid_system %>-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Go!</button>
-      </span>
-    </div><!-- /.input-group -->
-  </div><!-- /.col -->
-  <div class="col-<%= default_grid_system %>-6">
-    <div class="pull-right">
-      <%= link_to icon(:plus, t(".add_user_link")), new_settings_user_path, class: "btn btn-secondary" %>
+<div class="card-block">
+  <div class="row">
+    <div class="col-<%= default_grid_system %>-6">
+      <%= form_tag settings_users_path, method: "get", id: "users_search" do %>
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for..." %>
+            <span class="input-group-btn">
+              <%= submit_tag "Search", name: nil, class: "btn btn-secondary" %>
+            </span>
+          </div><!-- /.input-group -->
+      <% end %>
+    </div><!-- /.col -->
+    <div class="col-<%= default_grid_system %>-6">
+      <div class="pull-right">
+        <%= link_to icon(:plus, t(".add_user_link")), new_settings_user_path, class: "btn btn-secondary" %>
+      </div>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <div class="row">
+  
+    <div class="col-<%= default_grid_system %>-12">
+      test <%= link_to "сортировать", root_path %>
+      <%= button_dropdown_tag(:sort, "сортировать") do %>
+        <%= option_for_dropdown("по имени", { sort: params[:sort], direction: params[:direction] }, selected: true) %>
+        <%= option_for_dropdown("по дате регистрации", { sort: params[:sort], direction: params[:direction] }) %>
+      <% end %>
+      
     </div>
-  </div><!-- /.col -->
-</div><!-- /.row -->
+  </div>
 </div><!-- /.card-block -->
 <div class="card-block">
-<div class="row">
-  <table class="table table-hover v-align">
-    <tbody>
-      <% @users.each do |user| %>
-        <%= render "shared/users/user_item", user: user %>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <table class="table table-hover v-align">
+      <tbody>
+        <% @users.each do |user| %>
+          <%= render "shared/users/user_item", user: user %>
+        <% end %>
+      </tbody>
+    </table>
 
-  <div class="col-<%= default_grid_system %>-12">
-    <div class="pagination-block">
+    <div class="col-<%= default_grid_system %>-12">
+      <div class="pagination-block">
       
-      <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
-      <div class="pagination-info text-muted">
-        <small><%= page_entries_info @users, model: User, html: false %></small>
-      </div><!-- /.pagination-info -->
-    </div><!-- /.pagination-block -->
-  </div><!-- /.col -->
-</div><!-- /.row -->
+        <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
+        <div class="pagination-info text-muted">
+          <small><%= page_entries_info @users, model: User, html: false %></small>
+        </div><!-- /.pagination-info -->
+      </div><!-- /.pagination-block -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</div><!-- /.card-block -->

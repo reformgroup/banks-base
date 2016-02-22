@@ -4,11 +4,11 @@ module Searchable
   
   extend ActiveSupport::Concern
 
-  module ClassMethods
+  class_methods do
     
     # Returns a collection that match the search parameters.
     def search(query, *attributes)
-      return unless query
+      return self unless query
       raise ArgumentError, "Required parameter missing." unless attributes
       
       query           = query.gsub(/[^[:alpha:][:blank:][:digit:]\-\'\.\_\:]/i, "").split(" ").map { |q| "%#{q}%" }

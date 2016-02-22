@@ -100,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
-.btn {
+.btn, .dropdown-item  {
   font-weight: 300;
 }
 
@@ -191,6 +191,20 @@ select.date-select {
 	}
 }
 
+//Dropdowns
+ 
+.dropdown.default-link-style {
+  display: inline-block;
+  a.dropdown-toggle {
+    outline: none;
+    padding: 5px; 
+    border: 0; 
+    box-sizing: none; 
+    background-color: transparent;
+    padding: 0;
+    vertical-align: baseline;
+  }
+}
 // Tables
 //
 // Vertical align
