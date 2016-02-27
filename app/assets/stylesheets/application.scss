@@ -125,17 +125,6 @@ body {
   display: inline-block;
 }
 
-// Dropdown
-
-//.custom-carets .dropdown-toggle:after {
-//  font-family: FontAwesome;
-//  content: "\f107";
-//}
-
-//.custom-carets .dropdown-toggle > span.caret {
-//  display: none;
-//}
-
 // Forms
 
 select.date-select {
@@ -205,6 +194,22 @@ select.date-select {
     vertical-align: baseline;
   }
 }
+
+.dropdown, .btn-group {
+  .dropdown-item.current {
+    color: $brand-primary;
+  }
+}
+
+//.custom-carets .dropdown-toggle:after {
+//  font-family: FontAwesome;
+//  content: "\f107";
+//}
+
+//.custom-carets .dropdown-toggle > span.caret {
+//  display: none;
+//}
+
 // Tables
 //
 // Vertical align

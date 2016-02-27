@@ -8,17 +8,22 @@ ru:
     signup: "Зарегистрировать"
     yes: "Да"
     no: "Нет"
+    search: "Найти"
+  placeholder:
+    search: "Поиск..."
   timestamp:
     created_at: "Создан"
     updated_at: "Изменён"
   ago: "назад"
-  filter:
+  sort:
+    title: "Сортировать: "
+    not_selected: "не выбрано"
     string_asc: "а-я"
     string_desc: "я-а"
     date_asc: "от старых к новым"
     date_desc: "от новых к старым"
     number_asc: "0-9"
-    number_desc: "9-0"
+    number_desc: "9-0"    
   will_paginate:
     previous_label: "Назад"
     next_label: "Вперёд"

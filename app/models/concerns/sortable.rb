@@ -16,17 +16,21 @@ module Sortable
     private
   
     def sort_column(sort_param)
-      if self.column_names.include?(sort_param)
+      if sort_param && self.column_names.include?(sort_param)
         sort_param
       else
-        return "name"       if self.column_names.include?("name")
-        return "last_name"  if self.column_names.include?("last_name")
-        return "created_at" if self.column_names.include?("created_at")
+        default_sort_columns.each do |column|
+          return column if self.column_names.include?(column)
+        end
       end
     end
 
     def sort_direction(direction_param = nil)
       %w[asc desc].include?(direction_param) ? direction_param : "asc"
+    end
+    
+    def default_sort_columns
+      ["name", "last_name", "created_at"]
     end
   end
 end

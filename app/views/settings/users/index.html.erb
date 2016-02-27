@@ -2,54 +2,40 @@
 <% provide :main_content_title, t(".title") %>
 <% provide :main_content_filter  %>
 
-<div class="card-block">
-  <div class="row">
-    <div class="col-<%= default_grid_system %>-6">
-      <%= form_tag settings_users_path, method: "get", id: "users_search" do %>
-          <div class="input-group">
-            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for..." %>
-            <span class="input-group-btn">
-              <%= submit_tag "Search", name: nil, class: "btn btn-secondary" %>
-            </span>
-          </div><!-- /.input-group -->
-      <% end %>
-    </div><!-- /.col -->
-    <div class="col-<%= default_grid_system %>-6">
-      <div class="pull-right">
-        <%= link_to icon(:plus, t(".add_user_link")), new_settings_user_path, class: "btn btn-secondary" %>
-      </div>
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-  <div class="row">
-  
-    <div class="col-<%= default_grid_system %>-12">
-      test <%= link_to "сортировать", root_path %>
-      <%= button_dropdown_tag(:sort, "сортировать") do %>
-        <%= option_for_dropdown("по имени", { sort: params[:sort], direction: params[:direction] }, selected: true) %>
-        <%= option_for_dropdown("по дате регистрации", { sort: params[:sort], direction: params[:direction] }) %>
-      <% end %>
-      
+<div class="row m-b-1">
+  <div class="col-<%= default_grid_system %>-6">
+    <%= searh_tag settings_users_path, id: "users-search" %>
+  </div><!-- /.col -->
+  <div class="col-<%= default_grid_system %>-6">
+    <div class="pull-right">
+      <%= link_to icon(:plus, t(".add_user_link")), new_settings_user_path, class: "btn btn-secondary" %>
     </div>
-  </div>
-</div><!-- /.card-block -->
-<div class="card-block">
-  <div class="row">
-    <table class="table table-hover v-align">
-      <tbody>
-        <% @users.each do |user| %>
-          <%= render "shared/users/user_item", user: user %>
-        <% end %>
-      </tbody>
-    </table>
+  </div><!-- /.col -->
+</div><!-- /.row -->
+<div class="row m-b-2">
+  <div class="col-<%= default_grid_system %>-12">
+    <%= link_sort_tag(:sort, main_class: "default-link-style", selected_in_title: true) do %>
+      <%= option_for_sort(:last_name, "по имени", default: true) %>
+      <%= option_for_sort(:created_at, "по дате регистрации") %>
+    <% end %>
+  </div><!-- /.col -->
+</div><!-- /.col -->
+<div class="row">
+  <table class="table table-hover v-align">
+    <tbody>
+      <% @users.each do |user| %>
+        <%= render "shared/users/user_item", user: user %>
+      <% end %>
+    </tbody>
+  </table>
 
-    <div class="col-<%= default_grid_system %>-12">
-      <div class="pagination-block">
-      
-        <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
-        <div class="pagination-info text-muted">
-          <small><%= page_entries_info @users, model: User, html: false %></small>
-        </div><!-- /.pagination-info -->
-      </div><!-- /.pagination-block -->
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-</div><!-- /.card-block -->
+  <div class="col-<%= default_grid_system %>-12">
+    <div class="pagination-block">
+    
+      <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
+      <div class="pagination-info text-muted">
+        <small><%= page_entries_info @users, model: User, html: false %></small>
+      </div><!-- /.pagination-info -->
+    </div><!-- /.pagination-block -->
+  </div><!-- /.col -->
+</div><!-- /.row -->
