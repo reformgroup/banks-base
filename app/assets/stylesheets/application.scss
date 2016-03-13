@@ -104,6 +104,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+.text-clip {
+  white-space: nowrap; /* Do not white-space */
+  overflow: hidden; /* Cropped anything that does not fit in the area */
+  text-overflow: ellipsis; /* Add a dot after cropped text */
+}
+
 // Universal
 
 html {
@@ -215,4 +221,11 @@ select.date-select {
 // Vertical align
 .table.v-align tbody > tr > td {
   vertical-align: middle;
+}
+
+// Cards
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  border: 0px;
 }

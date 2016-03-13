@@ -1,5 +1,17 @@
 module BootstrapHelper
   
+  # ==== Examples
+  #   searh_tag(users_path, id: "users-search")
+  #   # => <form id="users-search" role="search" action="/users" accept-charset="UTF-8" method="get">
+  #   #      <input name="utf8" type="hidden" value="✓">
+  #   #      <div class="input-group">
+  #   #        <input type="search" name="search" id="search" class="form-control" placeholder="Search...">
+  #   #        <div class="input-group-btn">
+  #   #          <button name="button" type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+  #   #        </div>
+  #   #      </div>
+  #   #    </form>
+  #
   def searh_tag(url, options = {})
     options           ||= {}
     options[:role]    ||= "search"
@@ -18,19 +30,29 @@ module BootstrapHelper
     dropdown_tag(:button, name, content_or_options, options, &block)
   end
   
+  # ==== Examples
+  #   link_sort_tag(:sort, main_class: "default-link-style", selected_in_title: true) do
+  #     option_for_sort(:last_name, "by name", default: true)
+  #     option_for_sort(:created_at, "by created date")
+  #   end
+  #   # => <a class="dropdown-item" href="#"><i class="fa fa-fw fa-check"></i> Free</a>
+  #   #    <a class="dropdown-item" href="#">Basic</a>
+  #   #    <a class="dropdown-item" href="#">Advanced</a>
+  #   #    <a class="dropdown-item" disabled="disabled" href="#">Super Platinum</a>
+  #
   def link_dropdown_tag(name, content_or_options = nil, options = nil, &block)
     dropdown_tag(:a, name, content_or_options, options, &block)
   end
   
+  # ==== Examples
   #   options_for_dropdown( ["Free", free_path, selected: true], 
   #                         ["Basic", basic_path], 
   #                         ["Advanced", advanced_path], 
   #                         ["Super Platinum", super_platinum_path, disabled: true])
-  #   
   #   # => <a class="dropdown-item" href="#"><i class="fa fa-fw fa-check"></i> Free</a>
-  #   # => <a class="dropdown-item" href="#">Basic</a>
-  #   # => <a class="dropdown-item" href="#">Advanced</a>
-  #   # => <a class="dropdown-item" disabled="disabled" href="#">Super Platinum</a>
+  #   #    <a class="dropdown-item" href="#">Basic</a>
+  #   #    <a class="dropdown-item" href="#">Advanced</a>
+  #   #    <a class="dropdown-item" disabled="disabled" href="#">Super Platinum</a>
   #
   def options_for_dropdown(content)
     if content.is_a Array
@@ -42,8 +64,8 @@ module BootstrapHelper
     end
   end
   
+  # ==== Examples
   #   option_for_dropdown( "Super Platinum", super_platinum_path, disabled: true)
-  #   
   #   # => <a class="dropdown-item" disabled="disabled" href="#">Super Platinum</a>
   #
   def option_for_dropdown(name, url, options = {})

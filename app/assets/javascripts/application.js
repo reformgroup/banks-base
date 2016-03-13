@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require tether.min
 //= require bootstrap
-//= require_tree .
 //= require jquery.turbolinks
+//= require_tree .
 
 // Returns preview image before upload
 
@@ -36,7 +36,6 @@ $(function() {
     }
   });
 });
-
 
 // Footer
 
@@ -75,17 +74,17 @@ $(function() {
 });
 
 // Buttons
-//
+
 // Disable submit after click
+
 $(document).ready(function() {
   $('form').submit(function() {
     $(this).find(':submit:not(.not-disabled)').prop('disabled', true);
   });
 });
 
+// Tooltips
 
-//Tooltips
-
-$(document).ready(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-});
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

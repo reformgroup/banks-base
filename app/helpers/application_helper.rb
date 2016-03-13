@@ -33,9 +33,16 @@ module ApplicationHelper
      avatar_url.to_s
   end
 
-  # Return HTML code with 
+  # Return time ago with full date time tooltip
   def time_ago_tag(from_time, options = {})
-    content_tag(:span, "#{time_ago_in_words(from_time)} #{t('ago')}", "data-toggle": "tooltip", "data-placement": "top", title: l(from_time, format: :long)) if from_time
+    return unless from_time
+    
+    options                   ||= {}
+    options["data-toggle"]    ||= "tooltip"
+    options["data-placement"] ||= "top"
+    options[:title]           ||= l(from_time, format: :long)
+    
+    content_tag(:span, "#{time_ago_in_words(from_time)} #{t('ago')}", options) 
   end
   
   def not_found

@@ -1,18 +1,18 @@
 <tr>
   <td>
     <div class="row">
-      <div class="col-xs-6 col-md-4">
+      <div class="col-xs-6 col-md-4 text-clip">
         <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
         <%= link_to user.full_name, settings_user_path(user) %>
       </div>
-      <div class="col-xs-6">
-        <%= user.email %>
+      <div class="col-xs-6 text-clip">
+        <span data-toggle="tooltip" data-placement="top" title="<%= user.email %>"><%= user.email %></span>
       </div>
 
-      <div class="col-xs-2 hidden-md-down">
+      <div class="col-xs-2 hidden-md-down text-clip">
         <%= user.role %>
       </div>
-      <div class="col-xs-2 hidden-md-down small text-muted">
+      <div class="col-xs-2 hidden-md-down small text-muted text-clip">
         <%= time_ago_tag user.created_at %>
       </div>
     </div>
