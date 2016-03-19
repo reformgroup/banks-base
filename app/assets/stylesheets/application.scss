@@ -219,7 +219,9 @@ select.date-select {
 // Tables
 //
 // Vertical align
-.table.v-align tbody > tr > td {
+.table.v-align tbody > tr > td,
+.table.v-align tbody > tr > td > .row,
+.table.v-align tbody > tr > td > .row > div {
   vertical-align: middle;
 }
 

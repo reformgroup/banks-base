@@ -31,7 +31,6 @@
 
   <div class="col-<%= default_grid_system %>-12">
     <div class="pagination-block">
-    
       <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
       <div class="pagination-info text-muted">
         <small><%= page_entries_info @users, model: User, html: false %></small>

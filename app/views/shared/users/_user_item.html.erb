@@ -1,11 +1,11 @@
 <tr>
   <td>
     <div class="row">
-      <div class="col-xs-6 col-md-4 text-clip">
+      <div class="col-xs-4 col-md-4 text-clip">
         <%= image_tag user.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
         <%= link_to user.full_name, settings_user_path(user) %>
       </div>
-      <div class="col-xs-6 text-clip">
+      <div class="col-xs-4 text-clip">
         <span data-toggle="tooltip" data-placement="top" title="<%= user.email %>"><%= user.email %></span>
       </div>
 
