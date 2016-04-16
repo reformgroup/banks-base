@@ -18,9 +18,17 @@
             <%= render 'layouts/flash' %>
           </div><!-- /.col -->
           <div class="col-<%= default_grid_system %>-12">
+            <nav class="nav nav-inline m-b-1">
+              <a class="nav-link text-muted m-r-2" href="#"><i class="fa fa-angle-left"></i> Пользователи</a>
+              <a class="nav-link black active" href="#">Профиль</a>
+              <a class="nav-link text-muted" href="#">Сообщения</a>
+              <a class="nav-link text-muted" href="#">Another link</a>
+              <a class="nav-link text-muted disabled" href="#">Disabled</a>
+            </nav>
             <div class="card">
               <div class="card-block">
-                <h5 class="card-title"><%= t ".#{controller_name}.#{action_name}_title" %></h5>
+                
+                <!-- <h5 class="card-title"><%= t ".#{controller_name}.#{action_name}_title" %></h5> -->
               </div><!-- /.card-block -->
               <div class="card-block">
                 <%= yield %>

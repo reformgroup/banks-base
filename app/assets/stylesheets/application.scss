@@ -110,6 +110,19 @@ h1, h2, h3, h4, h5, h6 {
   text-overflow: ellipsis; /* Add a dot after cropped text */
 }
 
+a.black {
+  color: #000;
+  @include hover-focus {
+    color: $brand-primary;
+  }
+}
+
+a.text-muted {
+  @include hover-focus {
+    color: $brand-primary;
+  }
+}
+
 // Universal
 
 html {
